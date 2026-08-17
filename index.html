@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%9D%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Fraunces:ital,opsz,wght@1,9..144,400..600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0B2E35;
@@ -37,11 +37,11 @@
     margin:0;
     background:var(--paper);
     color:var(--ink);
-    font-family:'Manrope',system-ui,-apple-system,sans-serif;
+    font-family:'Gowun Dodum','Manrope',system-ui,-apple-system,sans-serif;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  h1,h2,h3{font-family:'Fraunces',Georgia,serif; margin:0; letter-spacing:-.01em;}
+  h1,h2,h3{font-family:'Jua','Fraunces',Georgia,serif; margin:0; letter-spacing:-.01em; font-weight:400;}
   em{font-style:italic;}
   a{color:inherit;}
   .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
@@ -76,7 +76,7 @@
   }
   .tabbar .wrap::-webkit-scrollbar{display:none;}
   .tabbar .brand{
-    font-family:'Fraunces',serif; font-weight:600; font-size:1rem;
+    font-family:'Jua',sans-serif; font-weight:400; font-size:1.05rem;
     margin-right:auto; white-space:nowrap; padding-right:14px;
   }
   .tabbar a{
@@ -120,11 +120,11 @@
   .hero-top{position:relative; z-index:2;}
   .hero .eyebrow{color:var(--gold);}
   .hero h1{
-    font-size:clamp(3rem,9vw,5.4rem);
-    line-height:.98; margin-top:14px; font-weight:600;
+    font-size:clamp(2.5rem,7.5vw,4.8rem);
+    line-height:1.05; margin-top:14px; font-weight:600;
     text-shadow:0 4px 24px rgba(6,26,30,.3);
   }
-  .hero h1 em{color:var(--teal); font-weight:400;}
+  .hero h1 em{font-family:'Fraunces',Georgia,serif; color:var(--teal); font-weight:400; font-style:italic;}
   .hero .dates{
     margin-top:18px; font-size:1.05rem; color:rgba(255,253,247,.78);
     display:flex; align-items:center; gap:10px; flex-wrap:wrap;
@@ -258,9 +258,9 @@
   /* timeline */
   .timeline{position:relative; padding-left:30px;}
   .timeline-line{
-    position:absolute; left:5px; top:6px; bottom:6px; width:2px;
+    position:absolute; left:5px; top:6px; bottom:6px; width:2px; overflow:hidden;
   }
-  .timeline-line svg{position:absolute; top:0; left:-5px; height:100%; width:12px; overflow:visible;}
+  .timeline-line svg{position:absolute; top:0; left:-5px; height:100%; width:12px; overflow:hidden;}
   .timeline-line path{
     fill:none; stroke:var(--ink); stroke-width:2; stroke-dasharray:6 6;
     stroke-dashoffset: var(--dash, 0);
@@ -409,7 +409,7 @@
     border-bottom:2px solid var(--teal); padding-bottom:2px; align-self:flex-start;
   }
   .resort-card .link-btn svg{width:13px; height:13px;}
-  .resort-card .extra-link{margin-top:8px; font-size:.76rem; color:var(--ink-faint); text-decoration:underline;}
+  .extra-link{margin-top:8px; font-size:.76rem; color:var(--ink-faint); text-decoration:underline; display:inline-block;}
 
   .totals-card{
     margin-top:24px; background:var(--ink); color:var(--white); border-radius:var(--radius);
@@ -460,7 +460,7 @@
     .tabbar a{font-size:.78rem; padding:7px 11px;}
 
     .hero{padding:44px 0 36px;}
-    .hero h1{font-size:clamp(2.6rem,15vw,3.6rem); margin-top:10px;}
+    .hero h1{font-size:clamp(2.1rem,11vw,3rem); margin-top:10px;}
     .hero .eyebrow{font-size:.62rem; letter-spacing:.16em;}
     .hero .dates{font-size:.86rem; margin-top:14px;}
     .hero-sun{width:130px; height:130px; top:-24px; right:20px;}
@@ -490,10 +490,12 @@
     .ai-card-head{gap:8px;}
     .ai-list li{font-size:.85rem;}
 
-    .route-stepper{padding:16px 12px; gap:12px 0;}
-    .route-step{flex-basis:30%;}
-    .route-step .label{font-size:.78rem;}
-    .route-step .sub{font-size:.66rem;}
+    .route-stepper{padding:14px 6px; gap:0;}
+    .route-step{flex-basis:25%; padding:8px 2px;}
+    .route-step .icon{width:28px; height:28px; margin:0 auto 6px;}
+    .route-step .icon svg{width:13px; height:13px;}
+    .route-step .label{font-size:.66rem; line-height:1.2;}
+    .route-step .sub{font-size:.58rem;}
 
     .stay-card .content{padding:20px;}
     .stay-price{gap:16px; flex-wrap:wrap; row-gap:10px;}
@@ -573,7 +575,7 @@
   </div>
   <div class="wrap hero-top">
     <p class="eyebrow">SUMMER GETAWAY · NHA TRANG, VIETNAM</p>
-    <h1>나트랑<br><em>Nha Trang</em></h1>
+    <h1>상윤이랑 나트랑<br><em>Nha Trang</em></h1>
     <div class="dates">
       <span>베트남 나트랑 · 8박 9일 (겸 왕복 야간 비행)</span>
       <span class="pill">2026.12.18 → 12.26</span>
@@ -880,7 +882,7 @@
         <div class="band"></div>
         <div class="content">
           <span class="kicker">본 호텔 · 12.19–21</span>
-          <h3>하바나 나트랑 호텔<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Manrope';">Havana Nha Trang Hotel</span></h3>
+          <h3>하바나 나트랑 호텔<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Gowun Dodum','Manrope';">Havana Nha Trang Hotel</span></h3>
           <div class="meta"><span>2박</span><span>나트랑 시내 중심</span><span>🍳 조식 포함</span></div>
           <p class="desc">야시장, 클럽, 해변까지 다 걸어다닐 수 있는 시내 중심 숙소예요. 이 2박 동안은 나트랑 시내 위주로 즐길 예정이에요.</p>
           <div class="stay-price">
@@ -892,6 +894,7 @@
             아고다에서 보기
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
+          <a class="extra-link" href="https://havanahotel.vn/ko" target="_blank" rel="noopener">공식 홈페이지 →</a>
         </div>
       </div>
     </div>
@@ -918,7 +921,7 @@
 
       <div class="resort-card" data-price="719223" data-pp="359611">
         <span class="resort-num">01</span>
-        <h3>두옌 하 리조트 깜라인<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Manrope';font-weight:500;">Duyen Ha Resort Cam Ranh</span></h3>
+        <h3>두옌 하 리조트 깜라인<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Gowun Dodum','Manrope';font-weight:500;">Duyen Ha Resort Cam Ranh</span></h3>
         <div class="chip-row"><span>🍳 조식 포함</span></div>
         <div class="opinion">
           <p class="opinion-label">정상윤 의견</p>
@@ -939,7 +942,7 @@
 
       <div class="resort-card" data-price="442776" data-pp="221388">
         <span class="resort-num">02</span>
-        <h3>다이아몬드 베이 리조트 앤 스파<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Manrope';font-weight:500;">Diamond Bay Resort &amp; Spa</span></h3>
+        <h3>다이아몬드 베이 리조트 앤 스파<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Gowun Dodum','Manrope';font-weight:500;">Diamond Bay Resort &amp; Spa</span></h3>
         <div class="chip-row"><span>🍳 조식 포함</span></div>
         <div class="opinion">
           <p class="opinion-label">정상윤 의견</p>
@@ -961,7 +964,7 @@
       <div class="resort-card best" data-price="420438" data-pp="210219">
         <span class="badge">최저가</span>
         <span class="resort-num">03</span>
-        <h3>디 엠피리언 깜란 비치 리조트<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Manrope';font-weight:500;">The Empyrean Cam Ranh Beach Resort</span></h3>
+        <h3>디 엠피리언 깜란 비치 리조트<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Gowun Dodum','Manrope';font-weight:500;">The Empyrean Cam Ranh Beach Resort</span></h3>
         <div class="chip-row"><span>🍳 조식 포함</span></div>
         <div class="opinion">
           <p class="opinion-label">정상윤 의견</p>
