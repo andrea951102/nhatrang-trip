@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>나트랑 트립 브리프 · 12.18 → 12.26</title>
+<meta name="theme-color" content="#0B2E35">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%9D%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2E35;
+    --ink-2:#082024;
+    --paper:#EFEAD9;
+    --paper-2:#E3DCC3;
+    --coral:#FF6F59;
+    --gold:#F2A93B;
+    --teal:#3FB8AE;
+    --sky:#BFE9F7;
+    --sky-deep:#8AD3EA;
+    --ocean-deep:#127D78;
+    --leaf:#1B5E4F;
+    --leaf-2:#164A3F;
+    --ink-soft:rgba(11,46,53,.66);
+    --ink-faint:rgba(11,46,53,.4);
+    --line:rgba(11,46,53,.16);
+    --white:#FFFDF7;
+    --shadow:0 18px 40px -20px rgba(8,32,36,.35);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif; margin:0; letter-spacing:-.01em;}
+  em{font-style:italic;}
+  a{color:inherit;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+  img,svg{display:block; max-width:100%;}
+
+  /* progress bar */
+  .progressbar{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg,var(--gold),var(--coral));
+    z-index:200; transition:width .1s linear;
+  }
+
+  /* sticky tab nav */
+  .tabbar{
+    position:sticky; top:0; z-index:100;
+    background:rgba(239,234,217,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .tabbar .wrap{
+    display:flex; align-items:center; gap:4px;
+    height:52px; overflow-x:auto; padding-left:20px; padding-right:20px;
+    scrollbar-width:none;
+  }
+  .tabbar .wrap::-webkit-scrollbar{display:none;}
+  .tabbar .brand{
+    font-family:'Fraunces',serif; font-weight:600; font-size:1rem;
+    margin-right:auto; white-space:nowrap; padding-right:14px;
+  }
+  .tabbar a{
+    text-decoration:none; white-space:nowrap;
+    font-size:.82rem; font-weight:600; color:var(--ink-soft);
+    padding:8px 12px; border-radius:100px; transition:background .2s,color .2s;
+  }
+  .tabbar a.active, .tabbar a:hover{ background:var(--ink); color:var(--white); }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg, var(--sky) 0%, var(--sky-deep) 34%, var(--teal) 66%, var(--ocean-deep) 100%);
+    color:var(--white);
+    padding:64px 0 56px;
+    overflow:hidden;
+  }
+  .hero-scrim{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(120deg, rgba(6,26,30,.86) 0%, rgba(6,26,30,.58) 30%, rgba(6,26,30,0) 60%);
+  }
+  .hero .stars{position:absolute; inset:0; opacity:.5;}
+  .hero-scene{position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:1;}
+  .hero-sun{
+    position:absolute; top:-40px; right:40px; width:180px; height:180px; border-radius:50%;
+    background:radial-gradient(circle at 40% 40%, rgba(255,241,214,.95), rgba(242,169,59,.35) 55%, transparent 75%);
+  }
+  .hero-palm{
+    position:absolute; top:-18px; left:-22px; width:230px; height:auto; color:var(--leaf); opacity:.96;
+    filter:drop-shadow(0 10px 16px rgba(6,26,22,.28));
+  }
+  .hero-palm-right{
+    position:absolute; top:-24px; right:-30px; width:190px; height:auto; color:var(--leaf-2); opacity:.94;
+    transform:scaleX(-1); filter:drop-shadow(0 10px 16px rgba(6,26,22,.24));
+  }
+  @media(min-width:680px){ .hero-palm{width:300px;} .hero-palm-right{width:250px;} }
+  .hero-beach-items{position:absolute; right:26px; bottom:64px; width:96px; height:auto; opacity:.92; z-index:1;}
+  @media(max-width:600px){ .hero-beach-items{display:none;} }
+  .hero-wave{position:absolute; left:0; right:0; bottom:-2px; width:100%; height:56px; z-index:2;}
+  .hero-wave-path{fill:var(--paper);}
+  .hero-top{position:relative; z-index:2;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{
+    font-size:clamp(3rem,9vw,5.4rem);
+    line-height:.98; margin-top:14px; font-weight:600;
+    text-shadow:0 4px 24px rgba(6,26,30,.3);
+  }
+  .hero h1 em{color:var(--teal); font-weight:400;}
+  .hero .dates{
+    margin-top:18px; font-size:1.05rem; color:rgba(255,253,247,.78);
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .hero .dates .pill{
+    font-family:'JetBrains Mono',monospace; font-size:.78rem;
+    border:1px solid rgba(255,253,247,.3); padding:4px 10px; border-radius:100px;
+  }
+
+  /* split-flap board */
+  .board{
+    position:relative; z-index:2;
+    margin-top:44px; background:rgba(8,32,36,.55);
+    border:1px solid rgba(255,253,247,.14);
+    border-radius:var(--radius); padding:22px 20px;
+    backdrop-filter:blur(6px);
+  }
+  .board-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding-bottom:12px; margin-bottom:14px; border-bottom:1px dashed rgba(255,253,247,.22);
+  }
+  .board-head span{font-size:.68rem; letter-spacing:.18em; color:rgba(255,253,247,.5); text-transform:uppercase;}
+  .flight-row{
+    display:flex; flex-wrap:wrap; align-items:center; gap:10px 18px;
+    padding:12px 0;
+  }
+  .flight-row + .flight-row{border-top:1px dashed rgba(255,253,247,.14);}
+  .flight-tag{
+    font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--coral); font-weight:700; width:66px; flex-shrink:0;
+  }
+  .flap-field{display:flex; gap:3px; flex-wrap:wrap;}
+  .flap{
+    position:relative; background:#0f3a41; border-radius:4px;
+    width:1.55ch; height:1.9em; overflow:hidden;
+    box-shadow:inset 0 0 0 1px rgba(255,253,247,.08);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .flap.sep{ background:transparent; box-shadow:none; width:auto; color:rgba(255,253,247,.45); }
+  .flap-char{
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1rem;
+    color:var(--white); transform:rotateX(0deg); transition:transform .09s linear;
+    display:inline-block;
+  }
+  .flight-meta{margin-left:auto; text-align:right; font-family:'JetBrains Mono',monospace;}
+  .flight-meta .price{font-size:.95rem; font-weight:700; color:var(--gold);}
+  .flight-meta .note{font-size:.68rem; color:rgba(255,253,247,.5); margin-top:2px;}
+  .board-foot{
+    margin-top:14px; padding-top:12px; border-top:1px dashed rgba(255,253,247,.22);
+    font-size:.76rem; color:rgba(255,253,247,.55); line-height:1.6;
+  }
+
+  .scroll-cue{
+    position:relative; z-index:2; display:inline-flex; align-items:center; gap:8px;
+    margin-top:34px; font-size:.82rem; color:rgba(255,253,247,.6);
+    text-decoration:none; font-weight:600;
+  }
+  .scroll-cue svg{width:14px; height:14px; animation:bob 1.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
+  @media (prefers-reduced-motion:reduce){ .scroll-cue svg{animation:none;} }
+
+  /* generic section */
+  .section{padding:72px 0; scroll-margin-top:64px;}
+  .section-head{margin-bottom:36px;}
+  .section-head .eyebrow{color:var(--coral);}
+  .section-head h2{font-size:clamp(1.9rem,4.6vw,2.6rem); margin-top:10px; font-weight:600;}
+  .section-head p{color:var(--ink-soft); margin-top:10px; max-width:56ch; line-height:1.6;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+
+  /* budget */
+  .budget-card{
+    background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:28px; display:grid; gap:22px; grid-template-columns:1fr;
+  }
+  @media(min-width:680px){ .budget-card{grid-template-columns:1.1fr 1fr;} }
+  .budget-numbers .row{display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--line); font-size:.94rem;}
+  .budget-numbers .row:last-child{border-bottom:none;}
+  .budget-numbers .row .val{font-family:'JetBrains Mono',monospace; font-weight:700;}
+  .budget-numbers .row.total .val{color:var(--coral);}
+  .budget-meter{display:flex; flex-direction:column; justify-content:center;}
+  .meter-track{
+    position:relative; height:14px; background:var(--paper-2); border-radius:100px; overflow:visible;
+  }
+  .meter-fill{
+    height:100%; border-radius:100px;
+    background:linear-gradient(90deg,var(--teal),var(--gold));
+    width:0%; transition:width 1.1s cubic-bezier(.2,.8,.2,1);
+  }
+  .meter-mark{
+    position:absolute; top:-6px; bottom:-6px; width:2px; background:var(--ink);
+  }
+  .meter-labels{display:flex; justify-content:space-between; font-size:.72rem; color:var(--ink-faint); margin-top:8px; font-family:'JetBrains Mono',monospace;}
+  .budget-note{font-size:.82rem; color:var(--ink-soft); margin-top:14px; line-height:1.6;}
+
+  /* about: weather + area info cards */
+  .info-grid{display:grid; gap:20px; grid-template-columns:1fr;}
+  @media(min-width:680px){ .info-grid{grid-template-columns:1fr 1fr;} }
+  .info-card{background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); padding:26px;}
+  .info-card-head{display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+  .info-icon{font-size:1.3rem;}
+  .info-card h3{font-size:1.1rem;}
+  .seg.small button{padding:6px 14px; font-size:.76rem;}
+  .info-stat{margin:18px 0 10px;}
+  .info-stat .temp{font-family:'JetBrains Mono',monospace; font-size:1.6rem; font-weight:700; display:block; color:var(--ink);}
+  .info-stat .temp-tip{font-size:.82rem; color:var(--ink-soft); display:block; margin-top:4px;}
+  .info-desc{font-size:.86rem; color:var(--ink-soft); line-height:1.65; margin-top:10px;}
+  .info-desc strong{color:var(--ink);}
+  .chip-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+  .chip-row span{font-size:.74rem; font-weight:600; background:var(--paper); padding:5px 10px; border-radius:100px; color:var(--ink-soft);}
+  .info-note{margin-top:14px; font-size:.78rem; color:var(--ink-faint); font-family:'JetBrains Mono',monospace;}
+
+  /* AI insight card */
+  .ai-card{
+    margin-top:24px; background:var(--white); border:1.5px dashed var(--teal); border-radius:var(--radius);
+    padding:26px; box-shadow:var(--shadow);
+  }
+  .ai-card-head{display:flex; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;}
+  .ai-badge{
+    font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:700; letter-spacing:.06em;
+    background:var(--teal); color:var(--white); padding:4px 10px; border-radius:100px; flex-shrink:0;
+  }
+  .ai-card-head h3{font-size:1.08rem;}
+  .ai-list{list-style:none; margin:0; padding:0; display:grid; gap:12px;}
+  .ai-list li{font-size:.88rem; line-height:1.65; color:var(--ink-soft);}
+  .ai-list li strong{color:var(--ink); font-weight:700;}
+  .ai-source{margin-top:16px; font-size:.72rem; color:var(--ink-faint); font-family:'JetBrains Mono',monospace;}
+
+  /* timeline */
+  .timeline{position:relative; padding-left:30px;}
+  .timeline-line{
+    position:absolute; left:5px; top:6px; bottom:6px; width:2px;
+  }
+  .timeline-line svg{position:absolute; top:0; left:-5px; height:100%; width:12px; overflow:visible;}
+  .timeline-line path{
+    fill:none; stroke:var(--ink); stroke-width:2; stroke-dasharray:6 6;
+    stroke-dashoffset: var(--dash, 0);
+    transition: stroke-dashoffset 1.4s ease;
+  }
+  .day{position:relative; margin-bottom:14px;}
+  .day-dot{
+    position:absolute; left:-30px; top:18px; width:12px; height:12px; border-radius:50%;
+    background:var(--coral); border:3px solid var(--paper); box-shadow:0 0 0 2px var(--ink);
+  }
+  .day-card{
+    background:var(--white); border-radius:14px; box-shadow:var(--shadow); overflow:hidden;
+  }
+  .day-head{
+    width:100%; display:flex; align-items:center; gap:14px; text-align:left;
+    padding:18px 20px; background:none; border:none; cursor:pointer; font:inherit; color:inherit;
+  }
+  .day-date{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.82rem; color:var(--coral); width:80px; flex-shrink:0;}
+  .day-title{font-weight:700; font-size:1.02rem; flex:1;}
+  .day-sub{font-size:.78rem; color:var(--ink-faint); display:block; margin-top:2px; font-weight:500;}
+  .day-toggle{
+    width:26px; height:26px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .3s ease;
+  }
+  .day.is-open .day-toggle{transform:rotate(45deg);}
+  .day-body{
+    max-height:0; overflow:hidden; transition:max-height .4s ease;
+  }
+  .day.is-open .day-body{max-height:500px;}
+  .day-body-inner{padding:0 20px 20px 20px; border-top:1px solid var(--line); margin-top:2px;}
+  .day-body ul{margin:14px 0 0; padding:0; list-style:none;}
+  .day-body li{
+    display:flex; gap:10px; padding:8px 0; font-size:.9rem; line-height:1.55; color:var(--ink-soft);
+  }
+  .day-body li .t{font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--ink); flex-shrink:0; width:64px;}
+  .day-tags{display:flex; gap:6px; flex-wrap:wrap; margin-top:12px;}
+  .day-tags span{
+    font-size:.7rem; font-weight:700; padding:3px 9px; border-radius:100px;
+    background:var(--paper); color:var(--ink-soft);
+  }
+
+  /* route stepper for stay */
+  .route-stepper{
+    display:flex; flex-wrap:wrap; gap:0; margin-bottom:36px;
+    background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px;
+  }
+  .route-step{
+    flex:1 1 140px; text-align:center; position:relative; padding:10px 8px;
+  }
+  .route-step:not(:last-child)::after{
+    content:""; position:absolute; top:24px; right:-8%; width:16%; height:2px;
+    background-image:linear-gradient(90deg, var(--ink-faint) 50%, transparent 50%);
+    background-size:8px 2px;
+  }
+  @media(max-width:680px){ .route-step:not(:last-child)::after{display:none;} }
+  .route-step .icon{
+    width:38px; height:38px; border-radius:50%; background:var(--ink); color:var(--white);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 10px; position:relative; z-index:2;
+  }
+  .route-step .icon svg{width:18px; height:18px;}
+  .route-step .label{font-weight:700; font-size:.86rem;}
+  .route-step .sub{font-size:.72rem; color:var(--ink-faint); font-family:'JetBrains Mono',monospace; margin-top:2px;}
+
+  .stay-cards{display:grid; gap:20px; grid-template-columns:1fr;}
+  @media(min-width:680px){ .stay-cards{grid-template-columns:1fr 1fr;} }
+  .stay-cards.single{grid-template-columns:1fr; max-width:460px; margin:0 auto;}
+  .stay-card{
+    background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow);
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .stay-card .band{
+    height:8px; background:repeating-linear-gradient(90deg,var(--ink) 0 10px, transparent 10px 18px);
+  }
+  .stay-card .content{padding:24px;}
+  .stay-card .kicker{font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--coral); font-weight:700;}
+  .stay-card h3{font-size:1.3rem; margin-top:8px;}
+  .stay-card .meta{
+    display:flex; gap:14px; flex-wrap:wrap; margin-top:12px; font-size:.82rem; color:var(--ink-soft);
+  }
+  .stay-card .meta b{color:var(--ink); font-family:'JetBrains Mono',monospace;}
+  .stay-card p.desc{margin-top:12px; font-size:.88rem; color:var(--ink-soft); line-height:1.6;}
+  .stay-price{display:flex; gap:26px; margin-top:16px; padding-top:14px; border-top:1px dashed var(--line);}
+  .stay-price .item{display:flex; flex-direction:column;}
+  .stay-price .label{font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); font-weight:700;}
+  .stay-price .amount{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.08rem; color:var(--ink); margin-top:3px;}
+  .stay-card .link-btn{
+    margin-top:18px; display:inline-flex; align-items:center; gap:6px;
+    font-size:.82rem; font-weight:700; text-decoration:none; color:var(--ink);
+    border-bottom:2px solid var(--gold); padding-bottom:2px;
+  }
+  .stay-card .link-btn svg{width:13px; height:13px;}
+
+  /* resort section */
+  .resort-controls{
+    display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:26px;
+  }
+  .seg{
+    display:inline-flex; background:var(--paper-2); border-radius:100px; padding:4px;
+  }
+  .seg button{
+    border:none; background:none; font:inherit; cursor:pointer; padding:7px 16px;
+    font-size:.8rem; font-weight:700; border-radius:100px; color:var(--ink-soft); transition:all .2s;
+  }
+  .seg button.active{background:var(--ink); color:var(--white);}
+  .sort-btn{
+    border:1px solid var(--line); background:var(--white); border-radius:100px;
+    padding:8px 16px; font:inherit; font-size:.8rem; font-weight:700; cursor:pointer;
+    display:inline-flex; align-items:center; gap:6px; color:var(--ink);
+  }
+  .sort-btn svg{width:13px; height:13px; transition:transform .3s;}
+  .sort-btn.desc svg{transform:rotate(180deg);}
+  .resort-note{font-size:.76rem; color:var(--ink-faint); margin-left:auto;}
+
+  .resort-grid{display:grid; gap:20px; grid-template-columns:1fr;}
+  @media(min-width:720px){ .resort-grid{grid-template-columns:repeat(3,1fr);} }
+  .resort-card{
+    background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:24px; position:relative; display:flex; flex-direction:column;
+    border:2px solid transparent; transition:transform .3s ease, border-color .3s ease;
+    order:1;
+  }
+  .resort-card.best{border-color:var(--gold);}
+  .resort-card:hover{transform:translateY(-4px);}
+  .badge{
+    position:absolute; top:-12px; right:20px; background:var(--gold); color:var(--ink-2);
+    font-size:.68rem; font-weight:800; padding:5px 12px; border-radius:100px;
+    letter-spacing:.04em;
+  }
+  .resort-num{font-family:'JetBrains Mono',monospace; font-size:.75rem; color:var(--ink-faint); font-weight:700;}
+  .resort-card h3{font-size:1.18rem; margin-top:8px; line-height:1.3;}
+  .resort-card .stay-price{margin-top:16px;}
+  .opinion{margin-top:14px; padding:14px 14px 12px; background:var(--paper); border-radius:12px;}
+  .opinion-label{font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--ink-faint); margin:0 0 10px;}
+  .opinion-row{display:flex; gap:8px; align-items:flex-start; margin-top:10px;}
+  .opinion-row:first-of-type{margin-top:0;}
+  .opinion-row .tag{
+    flex-shrink:0; font-size:.66rem; font-weight:700; padding:3px 9px; border-radius:100px;
+    font-family:'JetBrains Mono',monospace; margin-top:1px;
+  }
+  .opinion-row.pro .tag{background:rgba(63,184,174,.2); color:#1a6b64;}
+  .opinion-row.con .tag{background:rgba(255,111,89,.16); color:#c1502f;}
+  .opinion-row p{margin:0; font-size:.8rem; line-height:1.55; color:var(--ink-soft);}
+  .resort-card .link-btn{
+    margin-top:auto; padding-top:18px; display:inline-flex; align-items:center; gap:6px;
+    font-size:.82rem; font-weight:700; text-decoration:none; color:var(--ink);
+    border-bottom:2px solid var(--teal); padding-bottom:2px; align-self:flex-start;
+  }
+  .resort-card .link-btn svg{width:13px; height:13px;}
+  .resort-card .extra-link{margin-top:8px; font-size:.76rem; color:var(--ink-faint); text-decoration:underline;}
+
+  .totals-card{
+    margin-top:24px; background:var(--ink); color:var(--white); border-radius:var(--radius);
+    padding:28px; box-shadow:var(--shadow);
+  }
+  .totals-head h3{font-size:1.1rem; color:var(--white); font-weight:600; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .totals-tag{
+    font-family:'JetBrains Mono',monospace; font-size:.64rem; font-weight:700; letter-spacing:.06em;
+    background:var(--coral); color:var(--white); padding:3px 9px; border-radius:100px;
+  }
+  .totals-head p{font-size:.84rem; color:rgba(255,253,247,.65); margin-top:8px; line-height:1.6; max-width:60ch;}
+  .totals-head p strong{color:var(--white);}
+  .totals-rows{margin-top:20px; display:flex; flex-direction:column; gap:2px;}
+  .totals-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 4px; border-bottom:1px dashed rgba(255,253,247,.18);
+  }
+  .totals-row:last-child{border-bottom:none;}
+  .totals-row.best .totals-name{color:var(--gold);}
+  .totals-name{font-weight:700; font-size:.94rem; display:flex; align-items:center; gap:8px;}
+  .mini-badge{
+    font-family:'JetBrains Mono',monospace; font-size:.62rem; font-weight:700;
+    background:var(--gold); color:var(--ink-2); padding:2px 8px; border-radius:100px; letter-spacing:.04em;
+  }
+  .totals-amount-wrap{display:flex; flex-direction:column; align-items:flex-end;}
+  .totals-pp{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.2rem;}
+  .totals-row.best .totals-pp{color:var(--gold);}
+  .totals-sub{font-size:.7rem; color:rgba(255,253,247,.45); font-family:'JetBrains Mono',monospace; margin-top:2px;}
+
+  footer{
+    background:var(--ink); color:rgba(255,253,247,.7); padding:44px 0 60px; text-align:center;
+  }
+  footer .eyebrow{color:var(--teal);}
+  footer p{font-size:.84rem; line-height:1.7; margin-top:12px; max-width:52ch; margin-left:auto; margin-right:auto;}
+  footer .tag{
+    display:inline-block; margin-top:20px; font-family:'JetBrains Mono',monospace; font-size:.72rem;
+    border:1px dashed rgba(255,253,247,.3); padding:8px 16px; border-radius:100px; color:rgba(255,253,247,.55);
+  }
+
+  /* ============================================
+     MOBILE TUNING — most people open this on a phone,
+     so these overrides are the primary target, not an afterthought.
+     ============================================ */
+  @media (max-width:600px){
+    .wrap{padding:0 18px;}
+    .tabbar .wrap{padding-left:16px; padding-right:16px;}
+    .tabbar .brand{font-size:.92rem;}
+    .tabbar a{font-size:.78rem; padding:7px 11px;}
+
+    .hero{padding:44px 0 36px;}
+    .hero h1{font-size:clamp(2.6rem,15vw,3.6rem); margin-top:10px;}
+    .hero .eyebrow{font-size:.62rem; letter-spacing:.16em;}
+    .hero .dates{font-size:.86rem; margin-top:14px;}
+    .hero-sun{width:130px; height:130px; top:-24px; right:20px;}
+    .hero-palm{width:150px; top:-10px; left:-16px;}
+    .hero-palm-right{width:120px; top:-14px; right:-18px;}
+
+    .board{margin-top:30px; padding:16px 14px;}
+    .board-head{padding-bottom:10px; margin-bottom:10px;}
+    .board-head span{font-size:.6rem;}
+    .flight-row{gap:8px 10px; padding:10px 0;}
+    .flight-tag{width:auto; font-size:.62rem;}
+    .flap{width:1.3ch; height:1.65em;}
+    .flap-char{font-size:.86rem;}
+    .flight-meta{margin-left:0; flex-basis:100%; text-align:left; padding-top:4px;}
+    .board-foot{font-size:.7rem; line-height:1.55;}
+    .scroll-cue{margin-top:24px;}
+
+    .section{padding:48px 0;}
+    .section-head{margin-bottom:26px;}
+    .section-head h2{font-size:clamp(1.5rem,7.5vw,1.9rem);}
+    .section-head p{font-size:.86rem;}
+
+    .budget-card{padding:20px; gap:18px;}
+    .info-card{padding:20px;}
+    .info-stat .temp{font-size:1.35rem;}
+    .ai-card{padding:20px;}
+    .ai-card-head{gap:8px;}
+    .ai-list li{font-size:.85rem;}
+
+    .route-stepper{padding:16px 12px; gap:12px 0;}
+    .route-step{flex-basis:30%;}
+    .route-step .label{font-size:.78rem;}
+    .route-step .sub{font-size:.66rem;}
+
+    .stay-card .content{padding:20px;}
+    .stay-price{gap:16px; flex-wrap:wrap; row-gap:10px;}
+    .stay-card h3{font-size:1.14rem;}
+
+    .resort-controls{gap:8px;}
+    .resort-note{margin-left:0; width:100%; order:3;}
+    .resort-card{padding:20px;}
+    .resort-card .stay-price{gap:14px; flex-wrap:wrap; row-gap:10px;}
+
+    .totals-card{padding:22px;}
+    .totals-head h3{font-size:1rem;}
+    .totals-row{flex-wrap:wrap; row-gap:4px; padding:12px 2px;}
+    .totals-amount-wrap{align-items:flex-start;}
+    .totals-pp{font-size:1.1rem;}
+
+    .day-head{padding:15px 16px; gap:10px;}
+    .day-date{width:60px; font-size:.74rem;}
+    .day-title{font-size:.94rem;}
+    .day-toggle{width:24px; height:24px;}
+    .day-body-inner{padding:0 16px 16px 16px;}
+
+    footer{padding:36px 0 48px;}
+    footer p{font-size:.82rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="progressbar" id="progressbar"></div>
+
+<nav class="tabbar">
+  <div class="wrap">
+    <span class="brand">🏝️ 나트랑</span>
+    <a href="#about">나트랑은?</a>
+    <a href="#budget">항공</a>
+    <a href="#itinerary">일정</a>
+    <a href="#stay">숙소</a>
+    <a href="#resort">리조트</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-scene" aria-hidden="true">
+    <div class="hero-sun"></div>
+    <svg class="hero-palm" viewBox="0 0 260 200" fill="currentColor">
+      <path d="M18 8 C 70 30 110 70 108 130 C 90 100 55 60 30 35 C 22 26 18 16 18 8 Z"/>
+      <path d="M18 8 C 90 6 160 26 190 70 C 150 60 90 42 45 24 C 32 19 22 13 18 8 Z"/>
+      <path d="M18 8 C 100 -6 175 4 225 40 C 175 34 100 22 40 16 C 30 14 22 11 18 8 Z"/>
+      <path d="M18 8 C 55 34 78 78 68 128 C 50 96 28 55 15 22 C 12 17 14 11 18 8 Z"/>
+      <path d="M18 8 C 40 46 48 96 30 142 C 18 106 8 60 8 24 C 8 17 12 11 18 8 Z"/>
+    </svg>
+    <svg class="hero-palm-right" viewBox="0 0 260 200" fill="currentColor">
+      <path d="M18 8 C 70 30 110 70 108 130 C 90 100 55 60 30 35 C 22 26 18 16 18 8 Z"/>
+      <path d="M18 8 C 90 6 160 26 190 70 C 150 60 90 42 45 24 C 32 19 22 13 18 8 Z"/>
+      <path d="M18 8 C 100 -6 175 4 225 40 C 175 34 100 22 40 16 C 30 14 22 11 18 8 Z"/>
+      <path d="M18 8 C 55 34 78 78 68 128 C 50 96 28 55 15 22 C 12 17 14 11 18 8 Z"/>
+    </svg>
+    <svg class="hero-beach-items" viewBox="0 0 120 90" fill="none">
+      <ellipse cx="60" cy="80" rx="55" ry="9" fill="rgba(255,253,247,.18)"/>
+      <g transform="translate(6,18) rotate(-8)">
+        <circle cx="10" cy="10" r="9" fill="none" stroke="#082024" stroke-width="3"/>
+        <circle cx="30" cy="10" r="9" fill="none" stroke="#082024" stroke-width="3"/>
+        <path d="M19 10h2M1 8l-5-3M39 8l5-3" stroke="#082024" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(38,34)">
+        <ellipse cx="10" cy="34" rx="12" ry="7" fill="#3FB8AE"/>
+        <path d="M10 34 L10 6 M10 6 L2 -2 M10 6 L18 -2" stroke="#FF6F59" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </g>
+      <g transform="translate(66,30)">
+        <ellipse cx="10" cy="36" rx="12" ry="7" fill="#3FB8AE"/>
+        <path d="M10 36 L10 8 M10 8 L2 0 M10 8 L18 0" stroke="#FF6F59" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </g>
+      <path d="M96 42 L100 54 L113 55 L103 63 L106 76 L96 68 L86 76 L89 63 L79 55 L92 54 Z" fill="#F2A93B"/>
+    </svg>
+  </div>
+  <div class="wrap hero-top">
+    <p class="eyebrow">SUMMER GETAWAY · NHA TRANG, VIETNAM</p>
+    <h1>나트랑<br><em>Nha Trang</em></h1>
+    <div class="dates">
+      <span>베트남 나트랑 · 8박 9일 (겸 왕복 야간 비행)</span>
+      <span class="pill">2026.12.18 → 12.26</span>
+    </div>
+
+    <div class="board">
+      <div class="board-head">
+        <span>Departure / Return Board</span>
+        <span class="mono" id="board-clock">ICN ⇄ CXR</span>
+      </div>
+
+      <div class="flight-row" id="row-depart">
+        <span class="flight-tag">출국</span>
+        <div class="flap-field" data-flap="ICN→CXR"></div>
+        <div class="flap-field" data-flap="18DEC"></div>
+        <div class="flap-field" data-flap="20:50"></div>
+        <div class="flight-meta">
+          <div class="price">₩237,400</div>
+          <div class="note">인천 출발 · 새벽 1시경 나트랑 도착</div>
+        </div>
+      </div>
+
+      <div class="flight-row" id="row-return">
+        <span class="flight-tag">귀국</span>
+        <div class="flap-field" data-flap="CXR→ICN"></div>
+        <div class="flap-field" data-flap="26DEC"></div>
+        <div class="flap-field" data-flap="22:45"></div>
+        <div class="flight-meta">
+          <div class="price">₩400,000</div>
+          <div class="note">한국 도착 12.27 05:35</div>
+        </div>
+      </div>
+
+      <div class="board-foot">
+        예상 항공권 합계 <strong class="mono">₩637,400</strong> · 예산 목표는 아래 항공 섹션에서 확인 · 가격은 계속 변동 중이라 저렴할 때 알림 예정
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#about">
+      아래로 스크롤
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
+    </a>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path class="hero-wave-path" d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,50 L1440,90 L0,90 Z"/>
+  </svg>
+</header>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">01 · GOOD TO KNOW</p>
+      <h2>나트랑은 어떤 곳?</h2>
+      <p>가기 전에 알아두면 좋은 것들 — 12월 날씨랑 옷차림, 그리고 우리가 묵을 두 지역(시내 · 깜란)이 어떻게 다른지예요.</p>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <div class="info-card-head">
+          <span class="info-icon">☀️</span>
+          <h3>날씨 &amp; 옷차림</h3>
+        </div>
+        <div class="seg small" id="daynight-toggle">
+          <button data-when="day" class="active">낮</button>
+          <button data-when="night">밤 · 새벽</button>
+        </div>
+        <div class="info-stat">
+          <span class="temp" id="temp-display">24–28°C</span>
+          <span class="temp-tip" id="temp-tip">맑은 날엔 제법 따뜻해요 · 반팔 + 자외선 차단제</span>
+        </div>
+        <p class="info-desc">12월 초는 아직 우기 막바지라 스콜성 소나기 확률이 40%대예요. 12월 하순으로 갈수록 비 오는 날이 줄고 점점 맑아지는 편이라, 저희 일정(12.18~26)은 딱 그 전환기예요.</p>
+        <div class="chip-row">
+          <span>☂️ 휴대용 우산</span>
+          <span>🧥 가디건 · 바람막이</span>
+          <span>👡 방수 잘 되는 신발</span>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-head">
+          <span class="info-icon">📍</span>
+          <h3>나트랑 시내 vs 깜란 리조트</h3>
+        </div>
+        <div class="seg small" id="area-toggle">
+          <button data-area="city" class="active">시내</button>
+          <button data-area="camranh">깜란</button>
+        </div>
+        <p class="info-desc" id="area-desc">야시장 · 맛집 · 마사지 골목까지 도보로 다닐 수 있는 번화가예요. 쩐푸 해변을 따라 가성비 호텔이 밀집해있어요. 우리 일정 중 <strong>하바나 호텔 2박</strong>이 이 구역이에요.</p>
+        <div class="chip-row" id="area-chips">
+          <span>🌃 야시장</span><span>🍜 로컬 맛집</span><span>💆 마사지 골목</span>
+        </div>
+        <p class="info-note">두 지역은 차로 약 40분 거리 (그랩 편도 약 2만원 내외)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="budget">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 · FLIGHT BUDGET</p>
+      <h2>항공권 예산</h2>
+      <p>왕복 항공권 예산은 60만원 내외로 잡았어요. 가격 변동이 있어서 계속 모니터링 중이고, 쌀 때 다시 공유할게요.</p>
+    </div>
+
+    <div class="budget-card reveal">
+      <div class="budget-numbers">
+        <div class="row"><span>출국편 (12.18, 20:50 ICN 출발)</span><span class="val">₩237,400</span></div>
+        <div class="row"><span>귀국편 (12.26, 22:45 CXR 출발)</span><span class="val">₩400,000</span></div>
+        <div class="row total"><span>예상 합계</span><span class="val">₩637,400</span></div>
+      </div>
+      <div class="budget-meter">
+        <div class="meter-track">
+          <div class="meter-fill" id="meter-fill"></div>
+          <div class="meter-mark" style="left:94%"></div>
+        </div>
+        <div class="meter-labels"><span>₩0</span><span>예산선 ₩600,000</span><span>₩700,000+</span></div>
+        <div class="budget-note">현재가 기준 예산보다 약 3.7만원 높은 수준. 항공사·시기별 변동이 있어 더 저렴한 옵션이 나오면 업데이트할 예정이에요.</div>
+      </div>
+    </div>
+
+    <div class="ai-card reveal">
+      <div class="ai-card-head">
+        <span class="ai-badge">AI 조사</span>
+        <h3>항공권 시세, 지금 이 가격 어때요?</h3>
+      </div>
+      <ul class="ai-list">
+        <li><strong>노선 평균가 대비</strong> 인천–나트랑 노선 평균 항공권 요금은 약 29.8만원 수준으로 조사돼요. 출국편(23.7만원)은 평균보다 저렴하고, 귀국편(40만원)은 평균보다 높은 편이에요.</li>
+        <li><strong>성수기 시세 범위</strong> 자료마다 조금씩 다르지만, 12월은 대체로 연말 성수기로 분류돼서 항공권이 오르는 경향이 있다고 언급돼요. 성수기 왕복 시세로 흔히 언급되는 범위가 50~70만원인데, 지금 합계 63.7만원은 정확히 그 구간 안이에요.</li>
+        <li><strong>다만 편차가 큰 시기</strong> 12월 초는 아직 우기 막바지라 저가 항공 특가가 나온다는 자료도 있어서, 항공사·타이밍에 따라 가격 차이가 꽤 커요.</li>
+        <li><strong>팁</strong> 출발 45~60일 전 예약이 대체로 유리하다고 알려져 있어요. 지금부터 계속 모니터링하는 방향이 맞아요.</li>
+      </ul>
+      <p class="ai-source">참고: 트립닷컴 · 스카이스캐너 등 2026년 시세 데이터 기준 (실시간 변동 가능, 참고용 정보)</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="itinerary" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 · DAY BY DAY</p>
+      <h2>전체 일정</h2>
+      <p>출국·귀국 모두 야간 비행이라 앞뒤로 반나절씩 여유를 붙였어요. 각 날짜를 눌러서 세부 일정을 확인해보세요.</p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-line"><svg><path id="route-path" d="M6 0 L6 2000"/></svg></div>
+
+      <div class="day is-open">
+        <span class="day-dot"></span>
+        <div class="day-card">
+          <button class="day-head" data-day-toggle>
+            <span class="day-date">12.18<span class="day-sub">금요일</span></span>
+            <span class="day-title">출국<span class="day-sub">인천 → 나트랑, 밤비행기</span></span>
+            <span class="day-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <ul>
+                <li><span class="t">20:50</span> 인천공항 출발</li>
+                <li><span class="t">심야</span> 기내에서 하룻밤 (밤비행기라 나트랑 새벽 도착)</li>
+              </ul>
+              <div class="day-tags"><span>✈️ 이동일</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <span class="day-dot"></span>
+        <div class="day-card">
+          <button class="day-head" data-day-toggle>
+            <span class="day-date">12.19<span class="day-sub">토요일</span></span>
+            <span class="day-title">나트랑 도착 & 이동<span class="day-sub">Pre-Hotel → 하바나 호텔</span></span>
+            <span class="day-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <ul>
+                <li><span class="t">01:00</span> 나트랑(깜란) 공항 도착</li>
+                <li><span class="t">02:00</span> Pre-Hotel (T-78) 체크인 — 새벽 반박 눈붙이기용</li>
+                <li><span class="t">12:00</span> Pre-Hotel 체크아웃 → 하바나 나트랑 호텔 체크인</li>
+              </ul>
+              <div class="day-tags"><span>🛬 도착</span><span>🛏️ 숙소 이동</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <span class="day-dot"></span>
+        <div class="day-card">
+          <button class="day-head" data-day-toggle>
+            <span class="day-date">12.19–21<span class="day-sub">2박</span></span>
+            <span class="day-title">나트랑 시내<span class="day-sub">하바나 호텔 베이스</span></span>
+            <span class="day-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <ul>
+                <li><span class="t">전체</span> 야시장 · 클럽 · 시내 해변 위주로 자유롭게</li>
+              </ul>
+              <div class="day-tags"><span>🌃 야시장</span><span>🍸 클럽</span><span>🏖️ 해변</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <span class="day-dot"></span>
+        <div class="day-card">
+          <button class="day-head" data-day-toggle>
+            <span class="day-date">12.21–26<span class="day-sub">리조트 스테이</span></span>
+            <span class="day-title">리조트로 이동<span class="day-sub">3개 후보 중 택1 예정</span></span>
+            <span class="day-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <ul>
+                <li><span class="t">체크인</span> 하바나 호텔 체크아웃 → 리조트 체크인</li>
+                <li><span class="t">12.26</span> 밤비행기라 체크아웃 없이 하루 더 머무는 개념으로 여유있게</li>
+              </ul>
+              <div class="day-tags"><span>🌴 리조트</span><span>🏝️ 자유일정</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <span class="day-dot"></span>
+        <div class="day-card">
+          <button class="day-head" data-day-toggle>
+            <span class="day-date">12.26<span class="day-sub">토요일</span></span>
+            <span class="day-title">귀국<span class="day-sub">나트랑 → 인천, 밤비행기</span></span>
+            <span class="day-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="day-body">
+            <div class="day-body-inner">
+              <ul>
+                <li><span class="t">22:45</span> 나트랑(깜란) 공항 출발</li>
+                <li><span class="t">05:35</span> 한국 도착 (12.27, 새벽)</li>
+              </ul>
+              <div class="day-tags"><span>✈️ 귀국</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stay">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 · WHERE WE SLEEP</p>
+      <h2>숙소 루트</h2>
+      <p>공항 도착부터 리조트까지 총 3단계로 옮겨다녀요. Pre-Hotel은 새벽 도착 직후 잠깐 눈 붙이기용, 이후 시내 → 리조트 순서예요.</p>
+    </div>
+
+    <div class="route-stepper reveal">
+      <div class="route-step">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 16l20-8-8 20-2-8-8-2z"/></svg></div>
+        <div class="label">CXR 공항</div>
+        <div class="sub">01:00 도착</div>
+      </div>
+      <div class="route-step">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
+        <div class="label">Pre-Hotel</div>
+        <div class="sub">0.5박</div>
+      </div>
+      <div class="route-step">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
+        <div class="label">하바나 호텔</div>
+        <div class="sub">2박</div>
+      </div>
+      <div class="route-step">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22h20M4 22V10l8-6 8 6v12M10 22v-5a2 2 0 014 0v5"/></svg></div>
+        <div class="label">리조트</div>
+        <div class="sub">택1 예정</div>
+      </div>
+    </div>
+
+    <div class="stay-cards reveal">
+      <div class="stay-card">
+        <div class="band"></div>
+        <div class="content">
+          <span class="kicker">Pre-Hotel · 12.18–19</span>
+          <h3>T-78 Hotel Nha Trang</h3>
+          <div class="meta"><span>0.5박</span><span>하바나 호텔과 도보 <b>7분</b></span></div>
+          <p class="desc">새벽 1시쯤 공항에 도착하니, 본 숙소인 하바나 호텔과 가까우면서 위생·가격 괜찮은 곳으로 잡았어요. 짧게 눈만 붙이는 용도예요.</p>
+          <div class="stay-price">
+            <div class="item"><span class="label">2인 총액</span><span class="amount">₩23,250</span></div>
+            <div class="item"><span class="label">1인당</span><span class="amount">₩11,625</span></div>
+          </div>
+          <a class="link-btn" href="https://www.agoda.com/ko-kr/t-78-hotel-nha-trang/hotel/nha-trang-vn.html?countryId=38&checkIn=2026-12-18&los=1&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
+            아고다에서 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="stay-card">
+        <div class="band"></div>
+        <div class="content">
+          <span class="kicker">본 호텔 · 12.19–21</span>
+          <h3>하바나 나트랑 호텔<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Manrope';">Havana Nha Trang Hotel</span></h3>
+          <div class="meta"><span>2박</span><span>나트랑 시내 중심</span><span>🍳 조식 포함</span></div>
+          <p class="desc">야시장, 클럽, 해변까지 다 걸어다닐 수 있는 시내 중심 숙소예요. 이 2박 동안은 나트랑 시내 위주로 즐길 예정이에요.</p>
+          <div class="stay-price">
+            <div class="item"><span class="label">2인 총액</span><span class="amount">₩143,487</span></div>
+            <div class="item"><span class="label">1인당</span><span class="amount">₩71,743</span></div>
+            <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩35,872</span></div>
+          </div>
+          <a class="link-btn" href="https://www.agoda.com/ko-kr/havana-nha-trang-hotel/hotel/nha-trang-vn.html?countryId=38&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
+            아고다에서 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resort" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">05 · RESORT · 미정</p>
+      <h2>리조트, 3곳 중에 골라요</h2>
+      <p>12.21~26 머물 리조트는 아직 미정이에요. 아래 3곳을 비교해보고 다같이 정해요 — 여기 가격은 <strong>리조트 숙박비만</strong> 따로 뽑은 금액이고, Pre-Hotel·호텔까지 합친 전체 숙소비는 맨 아래에 따로 정리했어요.</p>
+    </div>
+
+    <div class="resort-controls reveal">
+      <button class="sort-btn" id="sort-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
+        저렴한 순
+      </button>
+      <span class="resort-note">리조트 단독 요금 · 6박 · 2인 기준 (agoda 기준)</span>
+    </div>
+
+    <div class="resort-grid reveal" id="resort-grid">
+
+      <div class="resort-card" data-price="719223" data-pp="359611">
+        <span class="resort-num">01</span>
+        <h3>두옌 하 리조트 깜라인<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Manrope';font-weight:500;">Duyen Ha Resort Cam Ranh</span></h3>
+        <div class="chip-row"><span>🍳 조식 포함</span></div>
+        <div class="opinion">
+          <p class="opinion-label">정상윤 의견</p>
+          <div class="opinion-row pro"><span class="tag">장점</span><p>공항까지 10분, 방이 제일 깔끔해요. 며칠은 독채빌라도 가능(1인 1박 약 8만원 추가). 나트랑 시내행 셔틀버스 있음(9시·13시 출발, 16시·21시 복귀). 식당 4개·바 2개·라운지 2개·헬스장·스파·카지노·편의점까지 부대시설이 제일 많아요. 동남아 감성 + 현대식 리조트가 섞인 느낌.</p></div>
+          <div class="opinion-row con"><span class="tag">단점</span><p>비용이 상대적으로 좀 쎄요.</p></div>
+        </div>
+        <div class="stay-price">
+          <div class="item"><span class="label">2인 총액</span><span class="amount">₩719,223</span></div>
+          <div class="item"><span class="label">1인당</span><span class="amount">₩359,611</span></div>
+          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩59,935</span></div>
+        </div>
+        <a class="link-btn" href="https://www.agoda.com/ko-kr/duyen-ha-resort-cam-ranh/hotel/nha-trang-vn.html?countryId=38&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
+          아고다에서 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a class="extra-link" href="https://duyenharesorts.com/" target="_blank" rel="noopener">공식 홈페이지 →</a>
+      </div>
+
+      <div class="resort-card" data-price="442776" data-pp="221388">
+        <span class="resort-num">02</span>
+        <h3>다이아몬드 베이 리조트 앤 스파<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Manrope';font-weight:500;">Diamond Bay Resort &amp; Spa</span></h3>
+        <div class="chip-row"><span>🍳 조식 포함</span></div>
+        <div class="opinion">
+          <p class="opinion-label">정상윤 의견</p>
+          <div class="opinion-row pro"><span class="tag">장점</span><p>공항에서 차로 25분. 조경이 제일 예쁘고(가장 동남아 리조트 느낌), 사람이 적어서 한적해요(중국인 관광객도 적음). 리조트 중 나트랑 시내랑 제일 가까워요. 헬스장·수영장·스파 등 기본 시설은 다 있어요.</p></div>
+          <div class="opinion-row con"><span class="tag">단점</span><p>프라이빗 인공해변이라 파도가 없어요(호수 같은 느낌, 카약은 가능). 음식이 조금 아쉬운 편. 시설은 좀 노후됐지만, 오히려 진짜 동남아식 리조트 느낌이라 나쁘지 않아요.</p></div>
+        </div>
+        <div class="stay-price">
+          <div class="item"><span class="label">2인 총액</span><span class="amount">₩442,776</span></div>
+          <div class="item"><span class="label">1인당</span><span class="amount">₩221,388</span></div>
+          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩36,898</span></div>
+        </div>
+        <a class="link-btn" href="https://www.agoda.com/ko-kr/diamond-bay-resort-spa/hotel/nha-trang-vn.html?countryId=38&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
+          아고다에서 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a class="extra-link" href="https://diamondbayresort.vn/" target="_blank" rel="noopener">공식 홈페이지 →</a>
+      </div>
+
+      <div class="resort-card best" data-price="420438" data-pp="210219">
+        <span class="badge">최저가</span>
+        <span class="resort-num">03</span>
+        <h3>디 엠피리언 깜란 비치 리조트<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Manrope';font-weight:500;">The Empyrean Cam Ranh Beach Resort</span></h3>
+        <div class="chip-row"><span>🍳 조식 포함</span></div>
+        <div class="opinion">
+          <p class="opinion-label">정상윤 의견</p>
+          <div class="opinion-row pro"><span class="tag">장점</span><p>공항에서 5분 거리. 두옌 하랑 비슷한 듯하지만 여긴 완전 모던 리조트예요. 메인 수영장이 제일 큰 편. 헬스장·오락실 같은 부대시설도 있어요.</p></div>
+          <div class="opinion-row con"><span class="tag">단점</span><p>현대식 리조트라 해변 바나 비치하우스 느낌은 덜해요. 고급 콘도에 가까운 느낌.</p></div>
+        </div>
+        <div class="stay-price">
+          <div class="item"><span class="label">2인 총액</span><span class="amount">₩420,438</span></div>
+          <div class="item"><span class="label">1인당</span><span class="amount">₩210,219</span></div>
+          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩35,037</span></div>
+        </div>
+        <a class="link-btn" href="https://www.agoda.com/ko-kr/the-empyrean-cam-ranh-beach-resort/hotel/nha-trang-vn.html?countryId=38&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
+          아고다에서 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a class="extra-link" href="https://theempyreancamranhresort.com/en/about/" target="_blank" rel="noopener">공식 홈페이지 →</a>
+      </div>
+
+    </div>
+
+    <div class="totals-card reveal">
+      <div class="totals-head">
+        <h3>1인당 전체 숙박비 <span class="totals-tag">1인 기준</span></h3>
+        <p>리조트 중 하나를 고르면, <strong>한 사람이 실제로 부담하는 숙박비 총액</strong>은 이렇게 돼요 — Pre-Hotel(1인당 ₩11,625) + 하바나 호텔(1인당 ₩71,743) + 리조트(1인당) 합산 금액이에요. 2인 합산 총액은 괄호 안에 참고로 적어뒀어요.</p>
+      </div>
+      <div class="totals-rows">
+        <div class="totals-row">
+          <span class="totals-name">두옌 하 리조트</span>
+          <span class="totals-amount-wrap">
+            <span class="totals-pp">₩442,980</span>
+            <span class="totals-sub">(2인 총액 ₩885,960)</span>
+          </span>
+        </div>
+        <div class="totals-row">
+          <span class="totals-name">다이아몬드 베이</span>
+          <span class="totals-amount-wrap">
+            <span class="totals-pp">₩304,756</span>
+            <span class="totals-sub">(2인 총액 ₩609,513)</span>
+          </span>
+        </div>
+        <div class="totals-row best">
+          <span class="totals-name">디 엠피리언 <span class="mini-badge">최저가</span></span>
+          <span class="totals-amount-wrap">
+            <span class="totals-pp">₩293,587</span>
+            <span class="totals-sub">(2인 총액 ₩587,175)</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">✈️ NHA TRANG · 2026</p>
+    <p>모든 가격과 일정은 예약 확정 전 기준이라 바뀔 수 있어요. 항공권 특가가 뜨면 바로 공유할게요 — 리조트는 이 페이지 보고 다같이 골라요!</p>
+    <span class="tag">last updated · 2026.08.17</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* progress bar */
+  var bar = document.getElementById('progressbar');
+  function updateProgress(){
+    var h = document.documentElement;
+    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = scrolled + '%';
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  /* nav active state */
+  var sections = document.querySelectorAll('section[id], header[id]');
+  var navLinks = document.querySelectorAll('.tabbar a');
+  var navObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        navLinks.forEach(function(l){ l.classList.remove('active'); });
+        var link = document.querySelector('.tabbar a[href="#' + entry.target.id + '"]');
+        if(link) link.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  sections.forEach(function(s){ navObserver.observe(s); });
+
+  /* reveal on scroll */
+  var revealEls = document.querySelectorAll('.reveal');
+  if(reduced){
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.15});
+    revealEls.forEach(function(el){ revealObserver.observe(el); });
+  }
+
+  /* budget meter fill */
+  var meterObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        document.getElementById('meter-fill').style.width = '94%';
+        meterObserver.disconnect();
+      }
+    });
+  }, {threshold:.3});
+  meterObserver.observe(document.getElementById('meter-fill'));
+
+  /* route line draw */
+  var path = document.getElementById('route-path');
+  var len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.setProperty('--dash', reduced ? 0 : len);
+  var lineObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        path.style.setProperty('--dash', 0);
+        lineObserver.disconnect();
+      }
+    });
+  }, {threshold:.05});
+  lineObserver.observe(document.querySelector('.timeline'));
+
+  /* day accordion */
+  document.querySelectorAll('[data-day-toggle]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btn.closest('.day').classList.toggle('is-open');
+    });
+  });
+
+  /* split-flap board */
+  var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  function randChar(target){
+    if(/[0-9]/.test(target)) return Math.floor(Math.random()*10).toString();
+    if(/[A-Z]/.test(target)) return CHARS[Math.floor(Math.random()*26)];
+    return target;
+  }
+  function buildFlap(container, text){
+    var chars = text.split('');
+    chars.forEach(function(target, i){
+      var isSep = !/[A-Z0-9]/.test(target);
+      var flap = document.createElement('div');
+      flap.className = 'flap' + (isSep ? ' sep' : '');
+      var span = document.createElement('span');
+      span.className = 'flap-char';
+      span.textContent = isSep ? target : (reduced ? target : randChar(target));
+      flap.appendChild(span);
+      container.appendChild(flap);
+      if(!isSep && !reduced){
+        animateFlap(span, target, i * 70 + Math.random()*120);
+      }
+    });
+  }
+  function animateFlap(span, target, delay){
+    var steps = 5 + Math.floor(Math.random()*4);
+    var i = 0;
+    setTimeout(function loop(){
+      span.style.transform = 'rotateX(-90deg)';
+      setTimeout(function(){
+        i++;
+        span.textContent = (i >= steps) ? target : randChar(target);
+        span.style.transform = 'rotateX(0deg)';
+        if(i < steps) setTimeout(loop, 85);
+      }, 90);
+    }, delay);
+  }
+  document.querySelectorAll('[data-flap]').forEach(function(el){
+    buildFlap(el, el.getAttribute('data-flap'));
+  });
+
+  /* weather day/night toggle */
+  var dn = document.getElementById('daynight-toggle');
+  var tempData = {
+    day:   {temp:'24–28°C', tip:'맑은 날엔 제법 따뜻해요 · 반팔 + 자외선 차단제'},
+    night: {temp:'20–23°C', tip:'선선해서 얇은 겉옷 하나는 챙기는 게 좋아요'}
+  };
+  dn.addEventListener('click', function(e){
+    var btn = e.target.closest('button'); if(!btn) return;
+    dn.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var d = tempData[btn.getAttribute('data-when')];
+    document.getElementById('temp-display').textContent = d.temp;
+    document.getElementById('temp-tip').textContent = d.tip;
+  });
+
+  /* city vs cam ranh toggle */
+  var areaToggle = document.getElementById('area-toggle');
+  var areaData = {
+    city: {
+      desc: '야시장 · 맛집 · 마사지 골목까지 도보로 다닐 수 있는 번화가예요. 쩐푸 해변을 따라 가성비 호텔이 밀집해있어요. 우리 일정 중 <strong>하바나 호텔 2박</strong>이 이 구역이에요.',
+      chips: ['🌃 야시장','🍜 로컬 맛집','💆 마사지 골목']
+    },
+    camranh: {
+      desc: '공항 바로 옆이라 접근이 편한 프라이빗 비치 + 대형 리조트 · 풀빌라 지역이에요. 시내보다 훨씬 한적하고 객실도 넉넉한 편이에요. 우리 <strong>리조트 스테이</strong>가 이 구역이에요.',
+      chips: ['🏖️ 프라이빗 비치','🏊 대형 풀', '🌴 한적함']
+    }
+  };
+  areaToggle.addEventListener('click', function(e){
+    var btn = e.target.closest('button'); if(!btn) return;
+    areaToggle.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var d = areaData[btn.getAttribute('data-area')];
+    document.getElementById('area-desc').innerHTML = d.desc;
+    document.getElementById('area-chips').innerHTML = d.chips.map(function(c){ return '<span>'+c+'</span>'; }).join('');
+  });
+
+  /* sort by price */
+  var sortBtn = document.getElementById('sort-btn');
+  var grid = document.getElementById('resort-grid');
+  var ascending = true;
+  sortBtn.addEventListener('click', function(){
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.resort-card'));
+    cards.sort(function(a,b){
+      var pa = parseInt(a.getAttribute('data-price'),10);
+      var pb = parseInt(b.getAttribute('data-price'),10);
+      return ascending ? pa - pb : pb - pa;
+    });
+    cards.forEach(function(c){ grid.appendChild(c); });
+    ascending = !ascending;
+    sortBtn.classList.toggle('desc', !ascending);
+    sortBtn.lastChild.textContent = ascending ? ' 저렴한 순' : ' 비싼 순';
+  });
+})();
+</script>
+</body>
+</html>
