@@ -335,6 +335,42 @@
     height:8px; background:repeating-linear-gradient(90deg,var(--ink) 0 10px, transparent 10px 18px);
   }
   .stay-card .content{padding:24px;}
+
+  /* photo gallery thumbs */
+  .gallery-row{display:flex; gap:6px; margin-top:14px;}
+  .gallery-thumb{
+    position:relative; flex:1; aspect-ratio:1/1; border-radius:10px; overflow:hidden;
+    cursor:pointer; background:var(--paper-2); min-width:0;
+  }
+  .gallery-thumb img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s ease;}
+  .gallery-thumb:hover img{transform:scale(1.07);}
+  .gallery-thumb.more::after{
+    content:attr(data-more); position:absolute; inset:0; background:rgba(8,32,36,.55);
+    color:var(--white); display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem;
+  }
+
+  /* lightbox modal */
+  .lightbox{
+    position:fixed; inset:0; z-index:300; background:rgba(6,20,23,.94);
+    display:none; align-items:center; justify-content:center; padding:24px;
+  }
+  .lightbox.is-open{display:flex;}
+  .lightbox-inner{position:relative; max-width:880px; width:100%;}
+  .lightbox-img-wrap{position:relative; aspect-ratio:4/3; background:#061a1e; border-radius:14px; overflow:hidden;}
+  .lightbox-img-wrap img{width:100%; height:100%; object-fit:contain; background:#061a1e;}
+  .lightbox-close{
+    position:absolute; top:-42px; right:0; background:none; border:none; color:var(--white);
+    font-size:1.7rem; cursor:pointer; line-height:1; padding:6px;
+  }
+  .lightbox-nav{
+    position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,253,247,.16);
+    border:none; color:var(--white); width:42px; height:42px; border-radius:50%; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-size:1.3rem;
+  }
+  .lightbox-nav.prev{left:10px;}
+  .lightbox-nav.next{right:10px;}
+  .lightbox-count{text-align:center; margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:.8rem; color:rgba(255,253,247,.6);}
   .stay-card .kicker{font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--coral); font-weight:700;}
   .stay-card h3{font-size:1.3rem; margin-top:8px;}
   .stay-card .meta{
@@ -375,7 +411,7 @@
   .resort-note{font-size:.76rem; color:var(--ink-faint); margin-left:auto;}
 
   .resort-grid{display:grid; gap:20px; grid-template-columns:1fr;}
-  @media(min-width:720px){ .resort-grid{grid-template-columns:repeat(3,1fr);} }
+  @media(min-width:720px){ .resort-grid{grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));} }
   .resort-card{
     background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow);
     padding:24px; position:relative; display:flex; flex-direction:column;
@@ -769,7 +805,7 @@
         <span class="day-dot"></span>
         <div class="day-card">
           <button class="day-head" data-day-toggle>
-            <span class="day-date">12.19–21<span class="day-sub">2박</span></span>
+            <span class="day-date">12.19–22<span class="day-sub">3박</span></span>
             <span class="day-title">나트랑 시내<span class="day-sub">하바나 호텔 베이스</span></span>
             <span class="day-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
@@ -777,8 +813,9 @@
             <div class="day-body-inner">
               <ul>
                 <li><span class="t">전체</span> 야시장 · 클럽 · 시내 해변 위주로 자유롭게</li>
+                <li><span class="t">호핑</span> 호핑 투어 일정도 이 기간에 진행할 예정</li>
               </ul>
-              <div class="day-tags"><span>🌃 야시장</span><span>🍸 클럽</span><span>🏖️ 해변</span></div>
+              <div class="day-tags"><span>🌃 야시장</span><span>🍸 클럽</span><span>🏖️ 해변</span><span>🚤 호핑 투어</span></div>
             </div>
           </div>
         </div>
@@ -788,8 +825,8 @@
         <span class="day-dot"></span>
         <div class="day-card">
           <button class="day-head" data-day-toggle>
-            <span class="day-date">12.21–26<span class="day-sub">리조트 스테이</span></span>
-            <span class="day-title">리조트로 이동<span class="day-sub">3개 후보 중 택1 예정</span></span>
+            <span class="day-date">12.22–26<span class="day-sub">리조트 스테이</span></span>
+            <span class="day-title">리조트로 이동<span class="day-sub">4개 후보 중 택1 예정</span></span>
             <span class="day-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
           </button>
           <div class="day-body">
@@ -850,7 +887,7 @@
       <div class="route-step">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
         <div class="label">하바나 호텔</div>
-        <div class="sub">2박</div>
+        <div class="sub">3박</div>
       </div>
       <div class="route-step">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22h20M4 22V10l8-6 8 6v12M10 22v-5a2 2 0 014 0v5"/></svg></div>
@@ -865,6 +902,11 @@
         <div class="content">
           <span class="kicker">Pre-Hotel · 12.18–19</span>
           <h3>T-78 Hotel Nha Trang</h3>
+          <div class="gallery-row" data-gallery="prehotel">
+            <div class="gallery-thumb"><img alt="T-78 Hotel Nha Trang 사진 1" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-thumb"><img alt="T-78 Hotel Nha Trang 사진 2" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-thumb more" data-more="더보기"><img alt="T-78 Hotel Nha Trang 사진 3" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          </div>
           <div class="meta"><span>0.5박</span><span>하바나 호텔과 도보 <b>7분</b></span></div>
           <p class="desc">새벽 1시쯤 공항에 도착하니, 본 숙소인 하바나 호텔과 가까우면서 위생·가격 괜찮은 곳으로 잡았어요. 짧게 눈만 붙이는 용도예요.</p>
           <div class="stay-price">
@@ -881,14 +923,19 @@
       <div class="stay-card">
         <div class="band"></div>
         <div class="content">
-          <span class="kicker">본 호텔 · 12.19–21</span>
+          <span class="kicker">본 호텔 · 12.19–22</span>
           <h3>하바나 나트랑 호텔<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Gowun Dodum','Manrope';">Havana Nha Trang Hotel</span></h3>
-          <div class="meta"><span>2박</span><span>나트랑 시내 중심</span><span>🍳 조식 포함</span></div>
-          <p class="desc">야시장, 클럽, 해변까지 다 걸어다닐 수 있는 시내 중심 숙소예요. 이 2박 동안은 나트랑 시내 위주로 즐길 예정이에요.</p>
+          <div class="gallery-row" data-gallery="havana">
+            <div class="gallery-thumb"><img alt="하바나 나트랑 호텔 사진 1" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-thumb"><img alt="하바나 나트랑 호텔 사진 2" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-thumb more" data-more="더보기"><img alt="하바나 나트랑 호텔 사진 3" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          </div>
+          <div class="meta"><span>3박</span><span>나트랑 시내 중심</span><span>🍳 조식 포함</span></div>
+          <p class="desc">야시장, 클럽, 해변까지 다 걸어다닐 수 있는 시내 중심 숙소예요. 이 3박 동안은 나트랑 시내 위주로 즐길 예정이에요. 호핑 투어 일정도 이때 진행할 예정이에요.</p>
           <div class="stay-price">
-            <div class="item"><span class="label">2인 총액</span><span class="amount">₩143,487</span></div>
-            <div class="item"><span class="label">1인당</span><span class="amount">₩71,743</span></div>
-            <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩35,872</span></div>
+            <div class="item"><span class="label">2인 총액</span><span class="amount">₩214,755</span></div>
+            <div class="item"><span class="label">1인당</span><span class="amount">₩107,377</span></div>
+            <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩35,792</span></div>
           </div>
           <a class="link-btn" href="https://www.agoda.com/ko-kr/havana-nha-trang-hotel/hotel/nha-trang-vn.html?countryId=38&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
             아고다에서 보기
@@ -906,7 +953,7 @@
     <div class="section-head reveal">
       <p class="eyebrow">05 · RESORT · 미정</p>
       <h2>리조트, 3곳 중에 골라요</h2>
-      <p>12.21~26 머물 리조트는 아직 미정이에요. 아래 3곳을 비교해보고 다같이 정해요 — 여기 가격은 <strong>리조트 숙박비만</strong> 따로 뽑은 금액이고, Pre-Hotel·호텔까지 합친 전체 숙소비는 맨 아래에 따로 정리했어요.</p>
+      <p>12.22~26 머물 리조트는 아직 미정이에요. 아래 4곳을 비교해보고 다같이 정해요 — 여기 가격은 <strong>리조트 숙박비만</strong> 따로 뽑은 금액이고, Pre-Hotel·호텔까지 합친 전체 숙소비는 맨 아래에 따로 정리했어요.</p>
     </div>
 
     <div class="resort-controls reveal">
@@ -914,14 +961,19 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
         저렴한 순
       </button>
-      <span class="resort-note">리조트 단독 요금 · 6박 · 2인 기준 (agoda 기준)</span>
+      <span class="resort-note">두옌 하·다이아몬드 베이·디 엠피리언은 5박·2인 기준, 윈덤 가든은 5박·6인(독채) 기준이에요</span>
     </div>
 
     <div class="resort-grid reveal" id="resort-grid">
 
-      <div class="resort-card" data-price="719223" data-pp="359611">
+      <div class="resort-card" data-price="604002" data-pp="302001">
         <span class="resort-num">01</span>
         <h3>두옌 하 리조트 깜라인<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Gowun Dodum','Manrope';font-weight:500;">Duyen Ha Resort Cam Ranh</span></h3>
+        <div class="gallery-row" data-gallery="duyenha">
+          <div class="gallery-thumb"><img alt="두옌 하 리조트 사진 1" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          <div class="gallery-thumb"><img alt="두옌 하 리조트 사진 2" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          <div class="gallery-thumb more" data-more="더보기"><img alt="두옌 하 리조트 사진 3" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        </div>
         <div class="chip-row"><span>🍳 조식 포함</span></div>
         <div class="opinion">
           <p class="opinion-label">정상윤 의견</p>
@@ -929,9 +981,9 @@
           <div class="opinion-row con"><span class="tag">단점</span><p>비용이 상대적으로 좀 쎄요.</p></div>
         </div>
         <div class="stay-price">
-          <div class="item"><span class="label">2인 총액</span><span class="amount">₩719,223</span></div>
-          <div class="item"><span class="label">1인당</span><span class="amount">₩359,611</span></div>
-          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩59,935</span></div>
+          <div class="item"><span class="label">2인 총액</span><span class="amount">₩604,002</span></div>
+          <div class="item"><span class="label">1인당</span><span class="amount">₩302,001</span></div>
+          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩60,400</span></div>
         </div>
         <a class="link-btn" href="https://www.agoda.com/ko-kr/duyen-ha-resort-cam-ranh/hotel/nha-trang-vn.html?countryId=38&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
           아고다에서 보기
@@ -940,9 +992,14 @@
         <a class="extra-link" href="https://duyenharesorts.com/" target="_blank" rel="noopener">공식 홈페이지 →</a>
       </div>
 
-      <div class="resort-card" data-price="442776" data-pp="221388">
+      <div class="resort-card" data-price="378760" data-pp="189380">
         <span class="resort-num">02</span>
         <h3>다이아몬드 베이 리조트 앤 스파<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Gowun Dodum','Manrope';font-weight:500;">Diamond Bay Resort &amp; Spa</span></h3>
+        <div class="gallery-row" data-gallery="diamondbay">
+          <div class="gallery-thumb"><img alt="다이아몬드 베이 리조트 사진 1" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          <div class="gallery-thumb"><img alt="다이아몬드 베이 리조트 사진 2" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          <div class="gallery-thumb more" data-more="더보기"><img alt="다이아몬드 베이 리조트 사진 3" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        </div>
         <div class="chip-row"><span>🍳 조식 포함</span></div>
         <div class="opinion">
           <p class="opinion-label">정상윤 의견</p>
@@ -950,9 +1007,9 @@
           <div class="opinion-row con"><span class="tag">단점</span><p>프라이빗 인공해변이라 파도가 없어요(호수 같은 느낌, 카약은 가능). 음식이 조금 아쉬운 편. 시설은 좀 노후됐지만, 오히려 진짜 동남아식 리조트 느낌이라 나쁘지 않아요.</p></div>
         </div>
         <div class="stay-price">
-          <div class="item"><span class="label">2인 총액</span><span class="amount">₩442,776</span></div>
-          <div class="item"><span class="label">1인당</span><span class="amount">₩221,388</span></div>
-          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩36,898</span></div>
+          <div class="item"><span class="label">2인 총액</span><span class="amount">₩378,760</span></div>
+          <div class="item"><span class="label">1인당</span><span class="amount">₩189,380</span></div>
+          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩37,876</span></div>
         </div>
         <a class="link-btn" href="https://www.agoda.com/ko-kr/diamond-bay-resort-spa/hotel/nha-trang-vn.html?countryId=38&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
           아고다에서 보기
@@ -961,10 +1018,15 @@
         <a class="extra-link" href="https://diamondbayresort.vn/" target="_blank" rel="noopener">공식 홈페이지 →</a>
       </div>
 
-      <div class="resort-card best" data-price="420438" data-pp="210219">
+      <div class="resort-card best" data-price="373475" data-pp="186737">
         <span class="badge">최저가</span>
         <span class="resort-num">03</span>
         <h3>디 엠피리언 깜란 비치 리조트<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Gowun Dodum','Manrope';font-weight:500;">The Empyrean Cam Ranh Beach Resort</span></h3>
+        <div class="gallery-row" data-gallery="empyrean">
+          <div class="gallery-thumb"><img alt="디 엠피리언 리조트 사진 1" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          <div class="gallery-thumb"><img alt="디 엠피리언 리조트 사진 2" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          <div class="gallery-thumb more" data-more="더보기"><img alt="디 엠피리언 리조트 사진 3" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        </div>
         <div class="chip-row"><span>🍳 조식 포함</span></div>
         <div class="opinion">
           <p class="opinion-label">정상윤 의견</p>
@@ -972,9 +1034,9 @@
           <div class="opinion-row con"><span class="tag">단점</span><p>현대식 리조트라 해변 바나 비치하우스 느낌은 덜해요. 고급 콘도에 가까운 느낌.</p></div>
         </div>
         <div class="stay-price">
-          <div class="item"><span class="label">2인 총액</span><span class="amount">₩420,438</span></div>
-          <div class="item"><span class="label">1인당</span><span class="amount">₩210,219</span></div>
-          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩35,037</span></div>
+          <div class="item"><span class="label">2인 총액</span><span class="amount">₩373,475</span></div>
+          <div class="item"><span class="label">1인당</span><span class="amount">₩186,737</span></div>
+          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩37,347</span></div>
         </div>
         <a class="link-btn" href="https://www.agoda.com/ko-kr/the-empyrean-cam-ranh-beach-resort/hotel/nha-trang-vn.html?countryId=38&adults=2&rooms=1&currencyCode=KRW" target="_blank" rel="noopener">
           아고다에서 보기
@@ -983,33 +1045,66 @@
         <a class="extra-link" href="https://theempyreancamranhresort.com/en/about/" target="_blank" rel="noopener">공식 홈페이지 →</a>
       </div>
 
+      <div class="resort-card" data-price="2174724" data-pp="434944">
+        <span class="resort-num">04</span>
+        <h3>윈덤 가든 깜란 리조트<br><span style="font-size:.72em;color:var(--ink-faint);font-family:'Gowun Dodum','Manrope';font-weight:500;">Wyndham Garden Cam Ranh Resort</span></h3>
+        <div class="gallery-row" data-gallery="wyndham">
+          <div class="gallery-thumb"><img alt="윈덤 가든 리조트 사진 1" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          <div class="gallery-thumb"><img alt="윈덤 가든 리조트 사진 2" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          <div class="gallery-thumb more" data-more="더보기"><img alt="윈덤 가든 리조트 사진 3" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        </div>
+        <div class="chip-row"><span>🏡 독채 빌라 · 6인 기준</span></div>
+        <div class="opinion">
+          <p class="opinion-label">정상윤 의견</p>
+          <div class="opinion-row pro"><span class="tag">장점</span><p>독채 빌라라 프라이빗 풀이 있어요. 공항에서 5분 거리로 제일 가까워요.</p></div>
+          <div class="opinion-row con"><span class="tag">단점</span><p>가격이 상대적으로 제일 비싸요. 룸 관리(청소)를 매일매일 빡세게 해주진 않는 편인 듯해요.</p></div>
+        </div>
+        <div class="stay-price">
+          <div class="item"><span class="label">6인 총액</span><span class="amount">₩2,174,724</span></div>
+          <div class="item"><span class="label">1인당 (5박 기준)</span><span class="amount">₩434,944</span></div>
+          <div class="item"><span class="label">1인당 · 1박</span><span class="amount">₩72,490</span></div>
+        </div>
+        <a class="link-btn" href="https://www.agoda.com/ko-kr/wyndham-garden-cam-ranh-resort/hotel/nha-trang-vn.html?countryId=38&currencyCode=KRW" target="_blank" rel="noopener">
+          아고다에서 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a class="extra-link" href="https://www.wyndhamhotels.com/ko-kr/wyndham-garden/cam-ranh-vietnam/wyndham-garden-cam-ranh-resort/overview" target="_blank" rel="noopener">공식 홈페이지 →</a>
+      </div>
+
     </div>
 
     <div class="totals-card reveal">
       <div class="totals-head">
         <h3>1인당 전체 숙박비 <span class="totals-tag">1인 기준</span></h3>
-        <p>리조트 중 하나를 고르면, <strong>한 사람이 실제로 부담하는 숙박비 총액</strong>은 이렇게 돼요 — Pre-Hotel(1인당 ₩11,625) + 하바나 호텔(1인당 ₩71,743) + 리조트(1인당) 합산 금액이에요. 2인 합산 총액은 괄호 안에 참고로 적어뒀어요.</p>
+        <p>리조트 중 하나를 고르면, <strong>한 사람이 실제로 부담하는 숙박비 총액</strong>은 이렇게 돼요 — Pre-Hotel(1인당 ₩11,625) + 하바나 호텔(1인당 ₩107,377) + 리조트(1인당) 합산 금액이에요. 참고용 총액은 괄호 안에 적어뒀어요 (윈덤 가든은 독채라 6인 총액 기준).</p>
       </div>
       <div class="totals-rows">
         <div class="totals-row">
           <span class="totals-name">두옌 하 리조트</span>
           <span class="totals-amount-wrap">
-            <span class="totals-pp">₩442,980</span>
-            <span class="totals-sub">(2인 총액 ₩885,960)</span>
+            <span class="totals-pp">₩421,003</span>
+            <span class="totals-sub">(2인 총액 ₩842,007)</span>
           </span>
         </div>
         <div class="totals-row">
           <span class="totals-name">다이아몬드 베이</span>
           <span class="totals-amount-wrap">
-            <span class="totals-pp">₩304,756</span>
-            <span class="totals-sub">(2인 총액 ₩609,513)</span>
+            <span class="totals-pp">₩308,382</span>
+            <span class="totals-sub">(2인 총액 ₩616,765)</span>
           </span>
         </div>
         <div class="totals-row best">
           <span class="totals-name">디 엠피리언 <span class="mini-badge">최저가</span></span>
           <span class="totals-amount-wrap">
-            <span class="totals-pp">₩293,587</span>
-            <span class="totals-sub">(2인 총액 ₩587,175)</span>
+            <span class="totals-pp">₩305,739</span>
+            <span class="totals-sub">(2인 총액 ₩611,480)</span>
+          </span>
+        </div>
+        <div class="totals-row">
+          <span class="totals-name">윈덤 가든 (독채)</span>
+          <span class="totals-amount-wrap">
+            <span class="totals-pp">₩553,946</span>
+            <span class="totals-sub">(6인 총액 ₩2,174,724)</span>
           </span>
         </div>
       </div>
@@ -1024,6 +1119,16 @@
     <span class="tag">last updated · 2026.08.17</span>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightbox-close" aria-label="닫기">&times;</button>
+    <div class="lightbox-img-wrap"><img id="lightbox-img" src="" alt=""></div>
+    <button class="lightbox-nav prev" id="lightbox-prev" aria-label="이전 사진">&#8249;</button>
+    <button class="lightbox-nav next" id="lightbox-next" aria-label="다음 사진">&#8250;</button>
+  </div>
+  <div class="lightbox-count" id="lightbox-count"></div>
+</div>
 
 <script>
 (function(){
@@ -1193,6 +1298,118 @@
     ascending = !ascending;
     sortBtn.classList.toggle('desc', !ascending);
     sortBtn.lastChild.textContent = ascending ? ' 저렴한 순' : ' 비싼 순';
+  });
+
+  /* photo gallery lightbox — real photos hotlinked from Agoda's image CDN */
+  var GALLERIES = {
+    prehotel: [
+      'https://pix8.agoda.net/hotelImages/37843723/-1/3df4b14ac79bd3fae4afb54458a82530.jpg',
+      'https://pix8.agoda.net/hotelImages/37843723/622863530/8af1c0a60ce3218b265ac646fa3a4240.jpg',
+      'https://pix8.agoda.net/hotelImages/37843723/-1/eb0509887ef398324e3f77c316e014c0.png',
+      'https://pix8.agoda.net/hotelImages/37843723/-1/6a0dfde0c688f073e162c26401213bdc.jpg',
+      'https://pix8.agoda.net/hotelImages/37843723/-1/76f81682b4854af025b4f96bdcde79b9.png',
+      'https://pix8.agoda.net/hotelImages/37843723/-1/fc11e29170523060d1e376f2317166da.jpg',
+      'https://pix8.agoda.net/hotelImages/37843723/622857180/523d1319d0e9f3d2411fa529d27f0166.jpeg',
+      'https://pix8.agoda.net/hotelImages/37843723/622857180/f40bc7e3039be38be4a249d4559f4b3d.jpg'
+    ],
+    havana: [
+      'https://pix8.agoda.net/hotelImages/445610/0/9728c61fc16b1941eceb880149e5cddf.jpeg',
+      'https://pix8.agoda.net/hotelImages/445610/-1/990910b2d7ae17f17e3a6617fe40204a.jpg',
+      'https://pix5.agoda.net/hotelimages/445610/3143744/3b39ebd9728139179152b72dbeb1ecc2.jpg',
+      'https://pix8.agoda.net/hotelImages/445610/1339972394/520c2e1d1ad057b9a7aa4e5e42cb8a90.jpg',
+      'https://pix8.agoda.net/hotelImages/445610/3564191/4ffb5f66c02d27001680980f6dc257ea.jpg',
+      'https://pix8.agoda.net/hotelImages/445610/-1/ca0e3740c19c9d071fcf2f70de491cae.jpg',
+      'https://pix8.agoda.net/hotelImages/445610/983010329/d76d83738a80737bdfa417df9daf0e71.jpeg',
+      'https://pix8.agoda.net/hotelImages/445610/-1/d25587cd7165b19d7f5c96ef26459ba1.jpg',
+      'https://pix8.agoda.net/hotelImages/445610/3564173/dec2212cb7a028d12e70499bb12c3161.jpeg'
+    ],
+    duyenha: [
+      'https://pix8.agoda.net/hotelImages/1985143/0/4c9242491c808a1dccccc924d51327ed.jpeg',
+      'https://pix8.agoda.net/hotelImages/1985143/11246022/1c72d9d6eae60fd75406539625d5ed8c.jpg',
+      'https://pix8.agoda.net/hotelImages/198/1985143/1985143_17082816580055775280.jpg',
+      'https://pix8.agoda.net/hotelimages/1985143/11291744/1d8da0f65286c3a1a4e17cd25a98d0b0.jpeg',
+      'https://pix8.agoda.net/hotelImages/1985143/11291690/2d90900d5e7d9fa2e55e6f76272d10ac.jpeg',
+      'https://pix8.agoda.net/hotelImages/1985143/0/333ba0f9888a14848801d095d97ae934.jpeg',
+      'https://pix8.agoda.net/hotelImages/1985143/39060615/3ca81b8cc82a551cab3fcc8e44c9cd36.jpeg',
+      'https://pix8.agoda.net/hotelImages/1985143/0/de7a1ef92910d4bd3f9a30a3014703fd.jpeg'
+    ],
+    diamondbay: [
+      'https://pix8.agoda.net/hotelImages/108455/-1/c322ab0f01ea1016d4385c5f4e73d790.jpg',
+      'https://pix8.agoda.net/hotelImages/108/108455/108455_16071908260044760069.jpg',
+      'https://pix8.agoda.net/hotelImages/108455/7510462/beac36aa6d443df5f71f1c4f43990ef3.jpg',
+      'https://pix8.agoda.net/hotelimages/108455/3143376/47dd8a8ad8bcc8c7d67cbc6af2172abc.jpg',
+      'https://pix8.agoda.net/hotelImages/108455/0/4b25228dfeec434deb4f917fa0a80fd4.jpg',
+      'https://pix8.agoda.net/hotelImages/108455/-1/eb28e649b5edaa091086a693bf159d87.jpg',
+      'https://pix8.agoda.net/hotelImages/108455/-1/d4316996c344a66772f2b003d109f170.jpg',
+      'https://pix8.agoda.net/hotelImages/108455/-1/f4c29ac603fa459c77644117bdd00cb9.jpg',
+      'https://pix8.agoda.net/hotelImages/108455/0/315eaa8e1052491f906f66b82b4104fe.jpg'
+    ],
+    empyrean: [
+      'https://pix8.agoda.net/hotelImages/33745263/0/64f22920c0d557c46b0929e568a9a21d.jpg',
+      'https://pix8.agoda.net/hotelImages/33745263/0/6048ed2d5309799054fb6ee108c7fe1d.jpeg',
+      'https://pix8.agoda.net/hotelImages/33745263/0/be7fe939a2cd7954e394133c2efe078f.jpg',
+      'https://pix8.agoda.net/hotelImages/33745263/0/4f9b5ba4a60009df5f0db1ec4a3021c5.jpg',
+      'https://pix8.agoda.net/hotelImages/33745263/0/76ee1270388f5aad4559500cf1090fee.png',
+      'https://pix8.agoda.net/hotelImages/33745263/600049676/8201e3650dc1649f8129bac94c1e5c7c.jpg',
+      'https://pix8.agoda.net/hotelImages/33745263/0/03e4a5c7410257b0ddb3e065489610e5.jpg',
+      'https://pix8.agoda.net/hotelImages/33745263/-1/2e98284005ee72742521bfc19880589f.jpg'
+    ],
+    wyndham: [
+      'https://pix8.agoda.net/hotelImages/31039863/-1/a1bf4712cde9cabe3782304c559c15aa.jpg',
+      'https://pix8.agoda.net/hotelImages/26092352/0/33c89dd2486d73d9307d5e4eef1c6cfc.jpg',
+      'https://pix8.agoda.net/hotelImages/31039863/506004111/c257088002c954153ae41a9088c22601.jpeg',
+      'https://pix8.agoda.net/hotelImages/31039863/-1/d14b87f8140b5018b6e36aeb00009065.jpg',
+      'https://pix8.agoda.net/hotelImages/31039863/0/cd6709035cc910389a8adc13888c9c72.jpeg',
+      'https://pix8.agoda.net/hotelImages/31039863/506004110/454cef0fe4a0da5d2c18f973835cee0e.jpeg',
+      'https://pix8.agoda.net/hotelImages/26092352/0/f0ebae227259491de5adb24e593faf4a.jpg',
+      'https://pix8.agoda.net/hotelImages/26092352/0/62445ad0758c4f1186372d60027de7f0.jpg',
+      'https://pix8.agoda.net/hotelImages/31039863/-1/1984195dbe91e3abd7e37ee4ab9a79b3.jpg'
+    ]
+  };
+
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var lbCount = document.getElementById('lightbox-count');
+  var curGallery = [], curIndex = 0;
+
+  function updateLightbox(){
+    if(!curGallery.length) return;
+    lbImg.src = curGallery[curIndex];
+    lbCount.textContent = (curIndex + 1) + ' / ' + curGallery.length;
+  }
+  function openLightbox(key, idx){
+    curGallery = GALLERIES[key] || [];
+    curIndex = idx || 0;
+    updateLightbox();
+    lb.classList.add('is-open');
+  }
+  function closeLightbox(){ lb.classList.remove('is-open'); }
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); });
+  document.getElementById('lightbox-prev').addEventListener('click', function(){
+    curIndex = (curIndex - 1 + curGallery.length) % curGallery.length; updateLightbox();
+  });
+  document.getElementById('lightbox-next').addEventListener('click', function(){
+    curIndex = (curIndex + 1) % curGallery.length; updateLightbox();
+  });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('is-open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
+    if(e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
+  });
+  document.querySelectorAll('[data-gallery]').forEach(function(row){
+    var key = row.getAttribute('data-gallery');
+    var photos = GALLERIES[key] || [];
+    row.querySelectorAll('.gallery-thumb').forEach(function(thumb, i){
+      var img = thumb.querySelector('img');
+      if(img && photos[i]){
+        img.src = photos[i];
+        thumb.style.display = '';
+      }
+      thumb.addEventListener('click', function(){ openLightbox(key, i); });
+    });
   });
 })();
 </script>
