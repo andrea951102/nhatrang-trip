@@ -1442,10 +1442,17 @@
     lbImg.src = curGallery[curIndex];
     lbCount.textContent = (curIndex + 1) + ' / ' + curGallery.length;
   }
+  function preloadGallery(urls){
+    urls.forEach(function(url){
+      var img = new Image();
+      img.src = url;
+    });
+  }
   function openLightbox(key, idx){
     curGallery = GALLERIES[key] || [];
     curIndex = idx || 0;
     updateLightbox();
+    preloadGallery(curGallery);
     lb.classList.add('is-open');
   }
   function closeLightbox(){ lb.classList.remove('is-open'); }
