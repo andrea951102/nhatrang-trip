@@ -1178,8 +1178,8 @@
     <div class="lightbox-img-wrap"><img id="lightbox-img" src="" alt=""></div>
     <button class="lightbox-nav prev" id="lightbox-prev" aria-label="이전 사진">&#8249;</button>
     <button class="lightbox-nav next" id="lightbox-next" aria-label="다음 사진">&#8250;</button>
+    <div class="lightbox-count" id="lightbox-count"></div>
   </div>
-  <div class="lightbox-count" id="lightbox-count"></div>
 </div>
 
 <script>
@@ -1464,6 +1464,24 @@
     if(e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
     if(e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
   });
+
+  /* swipe to navigate on touch devices */
+  var lbImgWrap = document.querySelector('.lightbox-img-wrap');
+  var touchStartX = 0, touchStartY = 0;
+  lbImgWrap.addEventListener('touchstart', function(e){
+    var t = e.changedTouches[0];
+    touchStartX = t.clientX;
+    touchStartY = t.clientY;
+  }, {passive:true});
+  lbImgWrap.addEventListener('touchend', function(e){
+    var t = e.changedTouches[0];
+    var dx = t.clientX - touchStartX;
+    var dy = t.clientY - touchStartY;
+    if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)){
+      if(dx < 0) document.getElementById('lightbox-next').click();
+      else document.getElementById('lightbox-prev').click();
+    }
+  }, {passive:true});
   document.querySelectorAll('[data-gallery]').forEach(function(row){
     var key = row.getAttribute('data-gallery');
     var photos = GALLERIES[key] || [];
