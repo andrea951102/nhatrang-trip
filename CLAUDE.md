@@ -12,6 +12,7 @@
 ## 작업 방식 (중요 — 예전 방식에서 전환됨)
 - 예전엔 Claude 앱(데스크톱/웹)에서 만든 산출물을 GitHub 웹 UI "Upload files"로 수동 커밋했음.
 - **이제부터는 이 저장소에서 Claude Code(CLI)로 직접 작업** → `git add . && git commit -m "..." && git push`. `main`에 푸시하면 Pages가 자동 재배포됨. 웹 UI 업로드는 더 이상 안 씀.
+- 문서 구조: [docs/PROJECT.md](docs/PROJECT.md)(목적/이해관계자) · [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)(구조) · [docs/ROADMAP.md](docs/ROADMAP.md)(확정/미정/다음 단계) · [docs/PROGRESS.md](docs/PROGRESS.md)(작업 로그) · [docs/COOPERATION.md](docs/COOPERATION.md)(Codex 등 다른 에이전트와 공유하는 진행 방식) · `docs/tasks/`(작업이 커지면 단위별로 분리).
 - 작업 로그는 [docs/PROGRESS.md](docs/PROGRESS.md) — 세션/기기 넘나들며 이어 작업하므로, 의미 있는 작업을 마칠 때마다 맨 위에 1건씩 기록할 것.
 
 ## 코드 구조 (index.html 안에서)

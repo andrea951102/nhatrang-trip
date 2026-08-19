@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-08-19 — 표준 docs 구조 전체 세팅 (PROJECT/ARCHITECTURE/ROADMAP/COOPERATION/tasks)
+
+**무엇을**: `docs/PROJECT.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/COOPERATION.md`, `docs/tasks/README.md` 추가. 사용자 전역 `~/.claude/CLAUDE.md`도 함께 갱신 — "규모가 있으면" 조건부로 문서 구조를 물어보던 규칙을, 규모 판단 없이 항상 기본으로 세팅하는 규칙으로 변경.
+
+**왜**: 사용자가 이전에도 이 규칙(작업 로그 + Codex와 공유하는 COOPERATION 문서)을 전역 CLAUDE.md에 넣어뒀었는데, "규모가 있으면"이라는 조건 때문에 제가 이 프로젝트를 작다고 판단해서 최초 세팅 때 일부만 반영했었음. 사용자가 규모 판단을 직접 하고 싶지 않다고 해서, 앞으로는 모든 프로젝트에서 조건 없이 기본 세팅하도록 전역 규칙을 수정함.
+
+**다음 할 일**: 없음 (문서 스캐폴딩 완료). 실제 작업 TODO는 아래 항목들 참고.
+
+---
+
 ## 2026-08-19 — Claude 앱 → CLI 전환 준비, 기존 인수인계 문서 이관
 
 **무엇을**: Claude 데스크톱/웹 앱에서 세션마다 수동으로 인수인계하던 방식(HANDOFF.md를 매번 복붙)에서, 저장소 안에 상시 작업 로그(`docs/PROGRESS.md`)와 프로젝트 전용 [CLAUDE.md](../CLAUDE.md)를 두는 구조로 전환. 기존 HANDOFF.md 내용을 이 로그와 CLAUDE.md로 이관.
