@@ -327,6 +327,11 @@
   .stay-cards{display:grid; gap:20px; grid-template-columns:1fr;}
   @media(min-width:680px){ .stay-cards{grid-template-columns:1fr 1fr;} }
   .stay-cards.single{grid-template-columns:1fr; max-width:460px; margin:0 auto;}
+
+  /* food grid — reuses .stay-card look, just a denser grid for ~10 cards */
+  .food-grid{display:grid; gap:20px; grid-template-columns:1fr;}
+  @media(min-width:720px){ .food-grid{grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));} }
+  .food-grid .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; font-size:.82rem; color:var(--ink-soft);}
   .stay-card{
     background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow);
     overflow:hidden; display:flex; flex-direction:column;
@@ -570,6 +575,7 @@
     <a href="#budget">항공</a>
     <a href="#itinerary">일정</a>
     <a href="#stay">숙소</a>
+    <a href="#food">맛집</a>
     <a href="#resort">리조트</a>
   </div>
 </nav>
@@ -948,10 +954,56 @@
   </div>
 </section>
 
+<section class="section" id="food">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">05 · WHERE WE EAT</p>
+      <h2>나트랑 시내 맛집</h2>
+      <p>다같이 가보고 싶은 로컬 맛집들을 모아뒀어요. 구글맵 링크를 눌러 위치·리뷰를 확인할 수 있고, 사진은 구글맵에 올라온 사진을 그대로 가져왔어요.</p>
+    </div>
+
+    <div class="ai-card reveal">
+      <div class="ai-card-head">
+        <span class="ai-badge">물가 참고</span>
+        <h3>나트랑 시내 밥값·술값, 대략 이 정도예요</h3>
+      </div>
+      <ul class="ai-list">
+        <li><strong>로컬 식당 한 끼</strong> 쌀국수·분짜 같은 로컬 메뉴는 보통 30,000~50,000동(약 1,700~2,800원) 수준이에요.</li>
+        <li><strong>로컬 맥주 한 병</strong> 사이공·333 같은 현지 맥주는 식당에서 15,000~25,000동(약 850~1,400원), 노점 생맥주(비아 허이)는 8,000~12,000동(약 450~650원)까지 더 내려가요.</li>
+        <li><strong>관광객 대상 해산물 레스토랑</strong> 1인 150,000~300,000동+(약 8,300~16,500원+)로 로컬 식당보다 훨씬 비싸요.</li>
+      </ul>
+      <p class="ai-source">참고: 나트랑 일반 물가 기준 대략적인 추정치예요 (환율 1,000동≈55원 기준). 실제 방문 후 정확한 가격으로 업데이트할 예정.</p>
+    </div>
+
+    <div class="food-grid reveal" id="food-grid">
+
+      <div class="stay-card">
+        <div class="band"></div>
+        <div class="content">
+          <span class="kicker">해산물 · 로컬맛집</span>
+          <h3>씨모이 가든<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Gowun Dodum','Manrope';">Seamoi Garden</span></h3>
+          <div class="gallery-row" data-gallery="food_seamoi">
+            <div class="gallery-thumb"><img alt="씨모이 가든 사진 1" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-thumb"><img alt="씨모이 가든 사진 2" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-thumb more" data-more="더보기"><img alt="씨모이 가든 사진 3" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+          </div>
+          <p class="desc">예시로 넣어본 카드예요 — 실제 코멘트·가격대는 링크 주시면 채울게요.</p>
+          <div class="meta"><span>가격대 확인 필요</span></div>
+          <a class="link-btn" href="https://maps.app.goo.gl/V4fpvSEgwqXFFwdW7" target="_blank" rel="noopener">
+            구글맵에서 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="section" id="resort" style="background:var(--paper-2);">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">05 · RESORT · 미정</p>
+      <p class="eyebrow">06 · RESORT · 미정</p>
       <h2>리조트, 3곳 중에 골라요</h2>
       <p>12.22~26 머물 리조트는 아직 미정이에요. 아래 4곳을 비교해보고 다같이 정해요 — 여기 가격은 <strong>리조트 숙박비만</strong> 따로 뽑은 금액이고, Pre-Hotel·호텔까지 합친 전체 숙소비는 맨 아래에 따로 정리했어요.</p>
     </div>
@@ -1302,6 +1354,19 @@
 
   /* photo gallery lightbox — real photos hotlinked from Agoda's image CDN */
   var GALLERIES = {
+    food_seamoi: [
+      'https://lh3.googleusercontent.com/geougc/AF1QipNJ_mh3dMJAEBpbyraIwGiwssJa3WRBQO9SvteT=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipNYI53b3JNgEG0MBVoc0vAItPIGYjhG_ubO-QeU=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipNYiwEoJ68nB2E5t5W_DmW6E6m6q3a2FJ4qc--v=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipNzmkmP99MFRRD0NMetpQJjQ9lb-U3Hfcb2lGt2=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipOWfe2TrbNHviuFEgwga0rakQJ5gDzc0u_IjZC2=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipOZsq9YOaS11voIxEPuyM3Jwx_NA_8P-tiDzZfM=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipOkvtK5RLXygTo8GRXSfkCBzdInSn64xpnbA7qG=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipPP0WnaHigvRUNpzj0-ThO7MrlAUqtpBQ-nWFuo=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipPYNo_PhAS_fqANbuTw4Y6rko4bCUXS2k1_LfsV=w1000',
+      'https://lh3.googleusercontent.com/geougc/AF1QipPxo09rfcCsUbVilMgEFZIcQchoRFbafxWIN-5g=w1000',
+      'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkKl48yzThdApG-0Dfi71OYXav6Kh7pagWoxiRHh3rK0cHqLgROXiLslkhxblrsICrpo-na9LpmBkineOFVV2TMbJKk5p-OEEzJ3vPDkZ6i8VNmnbiYlZ4P8VVzUDu1wFVVK6mC=w1000'
+    ],
     prehotel: [
       'https://pix8.agoda.net/hotelImages/37843723/-1/3df4b14ac79bd3fae4afb54458a82530.jpg',
       'https://pix8.agoda.net/hotelImages/37843723/622863530/8af1c0a60ce3218b265ac646fa3a4240.jpg',
