@@ -354,6 +354,12 @@
     color:var(--white); display:flex; align-items:center; justify-content:center;
     font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem;
   }
+  .food-cover{
+    display:block; margin-top:14px; border-radius:10px; overflow:hidden;
+    aspect-ratio:16/10; background:var(--paper-2);
+  }
+  .food-cover img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s ease;}
+  .food-cover:hover img{transform:scale(1.05);}
 
   /* lightbox modal */
   .lightbox{
@@ -990,6 +996,91 @@
           <p class="desc">예시로 넣어본 카드예요 — 실제 코멘트·가격대는 링크 주시면 채울게요.</p>
           <div class="meta"><span>가격대 확인 필요</span></div>
           <a class="link-btn" href="https://maps.app.goo.gl/V4fpvSEgwqXFFwdW7" target="_blank" rel="noopener">
+            구글맵에서 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="stay-card">
+        <div class="band"></div>
+        <div class="content">
+          <span class="kicker">딤섬 · 로컬 맛집</span>
+          <h3>쳉안 딤섬<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Gowun Dodum','Manrope';">Cheng An Dimsum</span></h3>
+          <a class="food-cover" href="https://maps.app.goo.gl/8AYUtBAfxd3KuM3k6" target="_blank" rel="noopener">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlr_rGdal7AP6w3H_VHrqbLTigqxZkpngBRCTp7AFyUToj112xaXhECyL6u6N6--H-t8j6mszlHWzO420PReXPQN9yGGCPprW7XoK-mHPAzkdvmikzsENcGch-szqbjkt1UwA7XTg=w1000" alt="쳉안 딤섬 사진" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </a>
+          <p class="desc">바익당 거리의 딤섬 전문점. 구글맵 평점 4.5. 코멘트·가격대는 다녀와서 채울게요.</p>
+          <div class="meta"><span>구글맵 ★ 4.5</span><span>가격대 확인 필요</span></div>
+          <a class="link-btn" href="https://maps.app.goo.gl/8AYUtBAfxd3KuM3k6" target="_blank" rel="noopener">
+            구글맵에서 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="stay-card">
+        <div class="band"></div>
+        <div class="content">
+          <span class="kicker">쌀국수 · 로컬 맛집</span>
+          <h3>포한푹<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Gowun Dodum','Manrope';">Phở Hạnh Phúc</span></h3>
+          <a class="food-cover" href="https://maps.app.goo.gl/MQcWxCo1g7bij3aVA" target="_blank" rel="noopener">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmdiAWIlrmN9T9B54WdHwlMO17xyLP2lV7oluHMFoMuLxXwzmxfW22ikRq-o5hsFvwtd6wGyj34exny5ur7lI41VltJN_M8EFy7qzen07OIhNAewDs-013zlpav-tj0G_Bha5-V=w1000" alt="포한푹 사진" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </a>
+          <p class="desc">응오지아뜨 거리의 쌀국수(퍼) 집. 구글맵 평점 4.7로 이 목록에서 제일 높아요. 코멘트·가격대는 다녀와서 채울게요.</p>
+          <div class="meta"><span>구글맵 ★ 4.7</span><span>가격대 확인 필요</span></div>
+          <a class="link-btn" href="https://maps.app.goo.gl/MQcWxCo1g7bij3aVA" target="_blank" rel="noopener">
+            구글맵에서 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="stay-card">
+        <div class="band"></div>
+        <div class="content">
+          <span class="kicker">베트남 가정식 · 해산물</span>
+          <h3>랑응온<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Gowun Dodum','Manrope';">Làng Ngon</span></h3>
+          <a class="food-cover" href="https://maps.app.goo.gl/3sJ9rLtXJsge7Jcv7" target="_blank" rel="noopener">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl15TJN6-g59HasBHwtqUfMRn4B7k_OUSe5JniawifGFIcZJxjqWOuAoVSY6xqqH6cPsdqqZ4QcWkaDeo4-U8mcR3ULbQH5Idf6zArRxRxI5yqRLZ9j7oGTQEBNBHvxIsxrPWIrDTxICeY=w1000" alt="랑응온 사진" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </a>
+          <p class="desc">응우옌티민카이 골목의 베트남 가정식·해산물 식당. 구글맵 평점 4.5. 코멘트·가격대는 다녀와서 채울게요.</p>
+          <div class="meta"><span>구글맵 ★ 4.5</span><span>가격대 확인 필요</span></div>
+          <a class="link-btn" href="https://maps.app.goo.gl/3sJ9rLtXJsge7Jcv7" target="_blank" rel="noopener">
+            구글맵에서 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="stay-card">
+        <div class="band"></div>
+        <div class="content">
+          <span class="kicker">베트남 백반 · 로컬 맛집</span>
+          <h3>바 또이<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Gowun Dodum','Manrope';">Tiệm Cơm Bà Tôi</span></h3>
+          <a class="food-cover" href="https://maps.app.goo.gl/6dtuy5ncpZ9GJPjv8" target="_blank" rel="noopener">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkqanIlZBzjV9xr7KxZwLwQpYzsB6N2vMEDwXfUiUMPz3Urf3_VSEkfKIyODhOBklts3VaJjt9YyAitsVERUs5nrx4BhfW9Rl0mjkLt3rr9ts7A4oUNmEIV7JUOwiKwH2jYzWEM1kbc-dSo=w1000" alt="바 또이 사진" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </a>
+          <p class="desc">동다 거리의 베트남 백반(껌) 집. 반찬 골라 담는 가정식 스타일. 구글맵 평점 4.5. 코멘트·가격대는 다녀와서 채울게요.</p>
+          <div class="meta"><span>구글맵 ★ 4.5</span><span>가격대 확인 필요</span></div>
+          <a class="link-btn" href="https://maps.app.goo.gl/6dtuy5ncpZ9GJPjv8" target="_blank" rel="noopener">
+            구글맵에서 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="stay-card">
+        <div class="band"></div>
+        <div class="content">
+          <span class="kicker">해산물 · 로컬 맛집</span>
+          <h3>하이산 타인 스엉 2<br><span style="font-size:.7em; color:var(--ink-faint); font-family:'Gowun Dodum','Manrope';">Hải sản Thanh Sương 2</span></h3>
+          <a class="food-cover" href="https://maps.app.goo.gl/9udWFmK9K6AvXEyQ7" target="_blank" rel="noopener">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlaZsGRAe6dPkZA135QqXcaiKkgc3goiZBncSOH0WQV9kZS-46E7KY_hvWtaYsfCToPopgVv3hehQAn1jBvys2uhBP9qDQAO0q4np6BBClwO9eEr4ePgKAKcGnK6ZedA1Vl9WOK=w1000" alt="하이산 타인 스엉 2 사진" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </a>
+          <p class="desc">트란푸 해안도로변 해산물 식당. 구글맵 평점 4.4. 코멘트·가격대는 다녀와서 채울게요.</p>
+          <div class="meta"><span>구글맵 ★ 4.4</span><span>가격대 확인 필요</span></div>
+          <a class="link-btn" href="https://maps.app.goo.gl/9udWFmK9K6AvXEyQ7" target="_blank" rel="noopener">
             구글맵에서 보기
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
