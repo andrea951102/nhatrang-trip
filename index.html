@@ -652,13 +652,13 @@
         <div class="flap-field" data-flap="26DEC"></div>
         <div class="flap-field" data-flap="22:45"></div>
         <div class="flight-meta">
-          <div class="price">₩400,000</div>
+          <div class="price">₩395,550</div>
           <div class="note">한국 도착 12.27 05:35</div>
         </div>
       </div>
 
       <div class="board-foot">
-        예상 항공권 합계 <strong class="mono">₩637,400</strong> · 예산 목표는 아래 항공 섹션에서 확인 · 가격은 계속 변동 중이라 저렴할 때 알림 예정
+        예상 항공권 합계 <strong class="mono">₩632,950</strong> · 예산 목표는 아래 항공 섹션에서 확인 · 귀국편은 395,550원으로 확정
       </div>
     </div>
 
@@ -732,16 +732,16 @@
     <div class="budget-card reveal">
       <div class="budget-numbers">
         <div class="row"><span>출국편 (12.18, 20:50 ICN 출발)</span><span class="val">₩237,400</span></div>
-        <div class="row"><span>귀국편 (12.26, 22:45 CXR 출발)</span><span class="val">₩400,000</span></div>
-        <div class="row total"><span>예상 합계</span><span class="val">₩637,400</span></div>
+        <div class="row"><span>귀국편 (12.26, 22:45 CXR 출발)</span><span class="val">₩395,550</span></div>
+        <div class="row total"><span>예상 합계</span><span class="val">₩632,950</span></div>
       </div>
       <div class="budget-meter">
         <div class="meter-track">
           <div class="meter-fill" id="meter-fill"></div>
-          <div class="meter-mark" style="left:94%"></div>
+          <div class="meter-mark" style="left:86%"></div>
         </div>
         <div class="meter-labels"><span>₩0</span><span>예산선 ₩600,000</span><span>₩700,000+</span></div>
-        <div class="budget-note">현재가 기준 예산보다 약 3.7만원 높은 수준. 항공사·시기별 변동이 있어 더 저렴한 옵션이 나오면 업데이트할 예정이에요.</div>
+        <div class="budget-note">귀국편 395,550원 확정 반영. 현재 합계 기준 예산보다 약 3.3만원 높은 수준. 항공사·시기별 변동이 있어 더 저렴한 옵션이 나오면 업데이트할 예정이에요.</div>
       </div>
     </div>
 
@@ -751,8 +751,8 @@
         <h3>항공권 시세, 지금 이 가격 어때요?</h3>
       </div>
       <ul class="ai-list">
-        <li><strong>노선 평균가 대비</strong> 인천–나트랑 노선 평균 항공권 요금은 약 29.8만원 수준으로 조사돼요. 출국편(23.7만원)은 평균보다 저렴하고, 귀국편(40만원)은 평균보다 높은 편이에요.</li>
-        <li><strong>성수기 시세 범위</strong> 자료마다 조금씩 다르지만, 12월은 대체로 연말 성수기로 분류돼서 항공권이 오르는 경향이 있다고 언급돼요. 성수기 왕복 시세로 흔히 언급되는 범위가 50~70만원인데, 지금 합계 63.7만원은 정확히 그 구간 안이에요.</li>
+        <li><strong>노선 평균가 대비</strong> 인천–나트랑 노선 평균 항공권 요금은 약 29.8만원 수준으로 조사돼요. 출국편(23.7만원)은 평균보다 저렴하고, 귀국편(39.6만원)은 평균보다 높은 편이에요.</li>
+        <li><strong>성수기 시세 범위</strong> 자료마다 조금씩 다르지만, 12월은 대체로 연말 성수기로 분류돼서 항공권이 오르는 경향이 있다고 언급돼요. 성수기 왕복 시세로 흔히 언급되는 범위가 50~70만원인데, 지금 합계 63.3만원은 정확히 그 구간 안이에요.</li>
         <li><strong>다만 편차가 큰 시기</strong> 12월 초는 아직 우기 막바지라 저가 항공 특가가 나온다는 자료도 있어서, 항공사·타이밍에 따라 가격 차이가 꽤 커요.</li>
         <li><strong>팁</strong> 출발 45~60일 전 예약이 대체로 유리하다고 알려져 있어요. 지금부터 계속 모니터링하는 방향이 맞아요.</li>
       </ul>
@@ -1273,7 +1273,7 @@
   var meterObserver = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
-        document.getElementById('meter-fill').style.width = '94%';
+        document.getElementById('meter-fill').style.width = '90%';
         meterObserver.disconnect();
       }
     });
